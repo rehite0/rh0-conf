@@ -1,0 +1,5 @@
+git init -make this dir a git repo
+git add . -add all files to staging area
+git reset . -remove all files from staging area
+
+.gitignore -
