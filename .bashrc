@@ -6,11 +6,21 @@ HISTSIZE=HISTFILESIZE
 export PATH=$PATH:~/Desktop/scripts/bas
 export MANPAGER="nvim +Man!"
 
+alias ..='cd ..'
 alias ~scr='cd ~/.scripts'
 alias ~des='cd ~/Desktop'
 alias ~dow='cd ~/Downloads'
 alias ~bac='cd ~/backup'
 alias ~git='cd ~/.git_repo'
+
+alias ed='nvim'
+alias ls='ls --color=auto'
+alias ll='ls -lah'
+alias grep='grep --color=auto'
+alias cp='cp -i'
+alias ln='ln -v'
+alias mkdir='mkdir -pv'
+
 
 term(){ 
 	nohup alacritty $* &
@@ -18,8 +28,8 @@ term(){
 cmpl(){
 	local flags=''
 	case $1 in
-		'-f') flags="$flags $2" ; shift 2;;
-		'-m') ls *.c | entr -c 'make && ./a.cout' && return 0;;
+		'-f') flags="$2" ; shift 2;;
+		'-m') ls *.c | entr -cs 'make && ./a.out' ; return 0;;
 	esac
 
 	if [ -f $1 ] ; then
@@ -31,7 +41,7 @@ cmpl(){
 	else
 		echo "not a valid file"
 	fi
-	echo $1 | entr -c $cm; 	
+	echo $1 | entr -cs $cm; 	
 }
 crsc(){ 
 	case $1 in
@@ -42,13 +52,5 @@ crsc(){
 		*)	echo '#!/usr/bin/env bash' >> $1 && chmod +x $1 && nvim $1 ;;
 	esac
 }
-
-alias ed='nvim'
-alias ls='ls --color=auto'
-alias ll='ls -lah'
-alias grep='grep --color=auto'
-alias cp='cp -i'
-alias ln='ln -v'
-alias mkdir='mkdir -pv'
 
 PS1='[\u@\h \W]\$ '
