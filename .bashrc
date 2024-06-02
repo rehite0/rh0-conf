@@ -15,6 +15,8 @@ alias ~bac='cd ~/backup'
 alias ~git='cd ~/.git_repo'
 
 alias fcd='cd $(fzf --walker=dir,hidden,follow)'
+alias fman=$'man $(man -k . |fzf --tiebreak=begin -m | awk \'{print $1}\')'
+alias fcmd="compgen -c | fzf | xargs man"
 alias ed='nvim'
 alias fed='nvim $(fzf)'
 alias ls='ls --color=auto'
