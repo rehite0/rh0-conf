@@ -7,13 +7,16 @@ export PATH=$PATH:~/Desktop/scripts/bas
 export MANPAGER="nvim +Man!"
 
 alias ..='cd ..'
+alias ~='cd ~'
 alias ~scr='cd ~/.scripts'
 alias ~des='cd ~/Desktop'
 alias ~dow='cd ~/Downloads'
 alias ~bac='cd ~/backup'
 alias ~git='cd ~/.git_repo'
 
+alias fcd='cd $(fzf --walker=dir,hidden,follow)'
 alias ed='nvim'
+alias fed='nvim $(fzf)'
 alias ls='ls --color=auto'
 alias ll='ls -lah'
 alias grep='grep --color=auto'
