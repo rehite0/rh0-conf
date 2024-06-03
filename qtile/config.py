@@ -3,6 +3,7 @@
 from libqtile import bar, layout, qtile, widget #,extension,hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
+import os
 
 mod = "mod4"
 terminal = "alacritty"
@@ -27,10 +28,11 @@ keys = [
     Key([mod], "f",     lazy.window.toggle_floating(),  desc="Toggle floating on focused window"),
     Key([mod], "m",     lazy.window.toggle_fullscreen(),desc="Toggle fullscreen on focused window",),
     Key([mod], "r",     lazy.spawncmd(),                desc="Spawn a command using a prompt widget"),
-    Key([mod], "i",     lazy.layout.increase_ratio() ,  desc="increase space for master window"),
-    Key([mod], "o",     lazy.layout.decrease_ratio() ,  desc="decrease space for master window"),
-    Key([mod], "period",lazy.next_screen(),             desc='Move focus to next monitor'),
-    Key([mod], "comma", lazy.prev_screen(),             desc='Move focus to prev monitor'),
+    Key([mod], "plus",  lazy.layout.increase_ratio() ,  desc="increase space for master window"),
+    Key([mod], "minus", lazy.layout.decrease_ratio() ,  desc="decrease space for master window"),
+    #Key([mod], "slash",  ,desc="key bindings"),
+    #Key([mod], "period",lazy.next_screen(),             desc='Move focus to next monitor'),
+    #Key([mod], "comma", lazy.prev_screen(),             desc='Move focus to prev monitor'),
 
     KeyChord([mod], 'a',
              [
@@ -46,7 +48,7 @@ keys = [
                  Key([], '4', l_change_layout('tile')),
                  Key([], '5', l_change_layout('stack')),
                  Key([], '6', l_change_layout('treetab')),
-                 Key([], '7', l_change_layout('radiotile')),
+                 Key([], '7', l_change_layout('ratiotile')),
                  Key([], '0', l_change_layout('floating')),
                  ]),
     KeyChord([mod], 'w',
@@ -61,8 +63,6 @@ keys = [
         ]),
 
 
-    #kc to change group of current window
-   
     #mod-shift
     Key([mod,   "shift"],   "h",    lazy.layout.shuffle_left(),     desc="Move window to the left"),
     Key([mod,   "shift"],   "l",    lazy.layout.shuffle_right(),    desc="Move window to the right"),
@@ -106,23 +106,23 @@ for vt in range(1, 8):
     )
 
 # name, lable,layout,;;layouts,spawn
-groups_name=[('1','gen','monadtall')
+groups_name=[('1','...','monadtall')
             ,('2','yt','treetab')
-            ,('3','dev','stack')
-            ,('4','ter','monadwide')
-            ,('5','bro','treetab')
+            ,('3','</>','stack')
+            ,('4','>_','monadwide')
+            ,('5','bro�','treetab')
             ,('6','doc','monadtall')
-            ,('7','sys','radiotile')
-            ,('8','chat','tile')
+            ,('7','sys','ratiotile')
+            ,('8','ch','tile')
             ]
 
 
-group=[]
+groups=[]
 for i in groups_name:
-    group.append(Group(  name=i[0]
+    groups.append(Group(  name=i[0]
                         ,layout=i[2]
                         ,label=i[1]))
-for i in group:
+for i in groups:
     keys.extend(
         [
             # mod + group number = switch to group
@@ -135,8 +135,8 @@ for i in group:
         ]
     )
 
-layout_theme={'border_focus':"#d75f5f",'border_normal':"#8f3d3d", 'border_width':4, 'margin':10}
-
+layout_theme={'border_focus':"#f5a031",'border_normal':"#f7d48d", 'border_width':5, 'margin':6}
+#d75f5f,#8f3d3d
 layouts = [
     layout.MonadTall(**layout_theme,new_client='top',ratio=0.6),
     layout.Max(**layout_theme),
@@ -145,14 +145,14 @@ layouts = [
     # layout.Columns(**layout_theme),
     # layout.Bsp(),
     # layout.Matrix(),
-     layout.MonadWide(),
+     layout.MonadWide(**layout_theme),
      layout.RatioTile(**layout_theme),
      layout.Tile(**layout_theme),
     # layout.VerticalTile(),
     # layout.Zoomy(),
     # layout.slice(),
     # layout.spiral(),
-     layout.Floating(),
+     layout.Floating(**layout_theme),
 ]
 
 
@@ -175,7 +175,7 @@ wigt=   [widget.CurrentLayout()
 
 screens=[
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             widgets=wigt,
             size=24,
             background=['#ffffff00','#ff0000e0'],
@@ -185,7 +185,7 @@ screens=[
         ),
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # x11_drag_polling_rate = 60,
-        wallpaper='./HH.jpg',
+        wallpaper=os.path.expanduser('~')+'/.config/qtile/HH.jpg',
         wallpaper_mode='fill',
     ),
 ]
@@ -207,7 +207,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],**layout_theme
 )
 floats_kept_above = True
 bring_front_click = 'floating_only'
@@ -231,4 +231,4 @@ wl_input_rules = None
 wl_xcursor_theme = None
 wl_xcursor_size = 24
 
-wmname = "LG3D"
+wmname = "qtile"
