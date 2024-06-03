@@ -131,7 +131,7 @@ for i in groups:
                 i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
-            ),
+                ),
         ]
     )
 
@@ -142,17 +142,17 @@ layouts = [
     layout.Max(**layout_theme),
     layout.Stack(**layout_theme,num_stacks=2),
     layout.TreeTab(**layout_theme),
+    layout.Tile(**layout_theme),
+    layout.RatioTile(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    layout.Floating(**layout_theme),
     # layout.Columns(**layout_theme),
     # layout.Bsp(),
     # layout.Matrix(),
-     layout.MonadWide(**layout_theme),
-     layout.RatioTile(**layout_theme),
-     layout.Tile(**layout_theme),
     # layout.VerticalTile(),
     # layout.Zoomy(),
     # layout.slice(),
     # layout.spiral(),
-     layout.Floating(**layout_theme),
 ]
 
 
@@ -166,8 +166,6 @@ wigt=   [widget.CurrentLayout()
             )
         ,widget.TextBox("default config", name="default")
         ,widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f")
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
         ,widget.Systray()
         ,widget.Clock(format="%Y-%m-%d %a %I:%M %p")
         ,widget.QuickExit()
