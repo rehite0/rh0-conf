@@ -179,7 +179,7 @@ screens=[
             widgets=wigt,
             size=24,
             background=['#ffffff00','#ff0000e0'],
-            border_width=[0, 0, 0, 0],  # Draw top and bottom borders
+            border_width=[0, 0, 0, 0],
             margin=[0,0,0,0],
             #border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
