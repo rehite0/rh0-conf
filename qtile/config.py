@@ -1,12 +1,15 @@
 #rh0-Qtile config
 
-from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile import bar, layout, qtile, widget #,extension,hook
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = "alacritty"
+
+@lazy.function
+def l_change_layout(qtile,l):
+    qtile.current_group.layout=l
 
 keys = [
     # list of commands at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -26,6 +29,38 @@ keys = [
     Key([mod], "r",     lazy.spawncmd(),                desc="Spawn a command using a prompt widget"),
     Key([mod], "i",     lazy.layout.increase_ratio() ,  desc="increase space for master window"),
     Key([mod], "o",     lazy.layout.decrease_ratio() ,  desc="decrease space for master window"),
+    Key([mod], "period",lazy.next_screen(),             desc='Move focus to next monitor'),
+    Key([mod], "comma", lazy.prev_screen(),             desc='Move focus to prev monitor'),
+
+    KeyChord([mod], 'a',
+             [
+                 Key([], 'e', lazy.spawn('thunar')),
+                 Key([], 'b', lazy.spawn('brave')),
+                 Key([], 'n', lazy.spawn('nvim')),
+                 ]),
+    KeyChord([mod], 's',
+             [
+                 Key([], '1', l_change_layout('monadtall')),
+                 Key([], '2', l_change_layout('max')),
+                 Key([], '3', l_change_layout('monadwide')),
+                 Key([], '4', l_change_layout('tile')),
+                 Key([], '5', l_change_layout('stack')),
+                 Key([], '6', l_change_layout('treetab')),
+                 Key([], '7', l_change_layout('radiotile')),
+                 Key([], '0', l_change_layout('floating')),
+                 ]),
+    KeyChord([mod], 'w',
+        [Key([], '1', lazy.window.togroup("1",switch_group=False),desc="move focused window to group 1")
+        ,Key([], '2', lazy.window.togroup("2",switch_group=False),desc="move focused window to group 2")
+        ,Key([], '3', lazy.window.togroup("3",switch_group=False),desc="move focused window to group 3")
+        ,Key([], '4', lazy.window.togroup("4",switch_group=False),desc="move focused window to group 4")
+        ,Key([], '5', lazy.window.togroup("5",switch_group=False),desc="move focused window to group 5")
+        ,Key([], '6', lazy.window.togroup("6",switch_group=False),desc="move focused window to group 6")
+        ,Key([], '7', lazy.window.togroup("7",switch_group=False),desc="move focused window to group 7")
+        ,Key([], '8', lazy.window.togroup("8",switch_group=False),desc="move focused window to group 8")
+        ]),
+
+
     #kc to change group of current window
    
     #mod-shift
@@ -45,7 +80,7 @@ keys = [
 
     Key([mod, "control"], "space",  lazy.layout.normalize(),        desc="Reset all window sizes"),
     Key([mod, "control"], "r",      lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q",      lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "control"], "x",      lazy.shutdown(), desc="Shutdown Qtile"),
 
     #sys ctl
     ##
@@ -70,10 +105,24 @@ for vt in range(1, 8):
         )
     )
 
+# name, lable,layout,;;layouts,spawn
+groups_name=[('1','gen','monadtall')
+            ,('2','yt','treetab')
+            ,('3','dev','stack')
+            ,('4','ter','monadwide')
+            ,('5','bro','treetab')
+            ,('6','doc','monadtall')
+            ,('7','sys','radiotile')
+            ,('8','chat','tile')
+            ]
 
-groups = [Group(i) for i in "123456789"]
 
-for i in groups:
+group=[]
+for i in groups_name:
+    group.append(Group(  name=i[0]
+                        ,layout=i[2]
+                        ,label=i[1]))
+for i in group:
     keys.extend(
         [
             # mod + group number = switch to group
@@ -83,20 +132,11 @@ for i in groups:
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
-            # mod + shift + group number = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod + shift + group number = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
+
 layout_theme={'border_focus':"#d75f5f",'border_normal':"#8f3d3d", 'border_width':4, 'margin':10}
+
 layouts = [
     layout.MonadTall(**layout_theme,new_client='top',ratio=0.6),
     layout.Max(**layout_theme),
@@ -105,38 +145,38 @@ layouts = [
     # layout.Columns(**layout_theme),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadWide(),
-    # layout.RatioTile(**layout_theme),
-    # layout.Tile(**layout_theme),
+     layout.MonadWide(),
+     layout.RatioTile(**layout_theme),
+     layout.Tile(**layout_theme),
     # layout.VerticalTile(),
     # layout.Zoomy(),
     # layout.slice(),
     # layout.spiral(),
-    # layout.floating(),
+     layout.Floating(),
 ]
 
-screens = [
-    Screen(
-        bottom=bar.Bar(
-            widgets=[
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+
+wigt=   [widget.CurrentLayout()
+        ,widget.GroupBox()
+        ,widget.Prompt()
+        ,widget.WindowName()
+        ,widget.Chord(
+                chords_colors={"launch": ("#ff0000", "#ffffff")},
+                name_transform=lambda name: name.upper(),
+            )
+        ,widget.TextBox("default config", name="default")
+        ,widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f")
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-            ],
+        ,widget.Systray()
+        ,widget.Clock(format="%Y-%m-%d %a %I:%M %p")
+        ,widget.QuickExit()
+        ]
+
+screens=[
+    Screen(
+        bottom=bar.Bar(
+            widgets=wigt,
             size=24,
             background=['#ffffff00','#ff0000e0'],
             border_width=[0, 0, 0, 0],  # Draw top and bottom borders
@@ -181,11 +221,7 @@ cursor_warp = False
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 
-widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
-)
+widget_defaults = dict(font="sans",fontsize=12,padding=3)
 extension_defaults = widget_defaults.copy()
 
 
