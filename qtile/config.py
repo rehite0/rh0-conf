@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 import os
 
 mod = "mod4"
-terminal = "alacritty"
+#terminal = "alacritty"
 
 @lazy.function
 def l_change_layout(qtile,l):
@@ -22,7 +22,7 @@ keys = [
     Key([mod],  "k",    lazy.layout.up(),       desc="Move focus up"),
     Key([mod],  "space",lazy.layout.next(),     desc="Move window focus to other window"),
 
-    Key([mod], "Return",lazy.spawn(terminal),           desc="Launch terminal"),
+  #  Key([mod], "Return",lazy.spawn(terminal),           desc="Launch terminal"),
     Key([mod], "Tab",   lazy.next_layout(),             desc="Toggle between layouts"),
     Key([mod], "q",     lazy.window.kill(),             desc="Kill focused window"),
     Key([mod], "f",     lazy.window.toggle_floating(),  desc="Toggle floating on focused window"),
@@ -34,13 +34,13 @@ keys = [
     #Key([mod], "period",lazy.next_screen(),             desc='Move focus to next monitor'),
     #Key([mod], "comma", lazy.prev_screen(),             desc='Move focus to prev monitor'),
 
-    KeyChord([mod], 'a',
-             [
-                 Key([], 'e', lazy.spawn('thunar')),
-                 Key([], 'b', lazy.spawn('brave')),
-                 Key([], 'n', lazy.spawn('nvim')),
-                 ]),
-    KeyChord([mod], 's',
+ #   KeyChord([mod], 'a',
+  #           [
+   #              Key([], 'e', lazy.spawn('thunar')),
+    #             Key([], 'b', lazy.spawn('brave')),
+     #            Key([], 'n', lazy.spawn('nvim')),
+      #           ]),
+    KeyChord([mod], 'e',
              [
                  Key([], '1', l_change_layout('monadtall')),
                  Key([], '2', l_change_layout('max')),
