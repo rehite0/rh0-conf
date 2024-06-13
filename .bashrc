@@ -6,13 +6,11 @@ HISTSIZE=HISTFILESIZE
 export PATH=$PATH:~/Desktop/scripts/bas
 export MANPAGER="nvim +Man!"
 
-alias ..='cd ..'
-alias ~='cd ~'
-alias ~scr='cd ~/.scripts'
-alias ~des='cd ~/Desktop'
-alias ~dow='cd ~/Downloads'
-alias ~bac='cd ~/backup'
-alias ~git='cd ~/.git_repo'
+export scr="$HOME/.scripts"
+export des="$HOME/Desktop"
+export dow="$HOME/Downloads"
+export bac="$HOME/backup"
+export git="$HOME/.git_repo"
 
 alias fcd='cd $(fzf --walker=dir,hidden,follow)'
 alias fman=$'man $(man -k . |fzf --tiebreak=begin -m | awk \'{print $1}\')'
