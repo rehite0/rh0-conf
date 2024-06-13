@@ -1,6 +1,6 @@
 #rh0-Qtile config
 
-from libqtile import bar, layout, qtile, widget #,extension,hook
+from libqtile import bar, layout, qtile, widget, hook #,extension
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 import os
@@ -22,7 +22,7 @@ keys = [
     Key([mod],  "k",    lazy.layout.up(),       desc="Move focus up"),
     Key([mod],  "space",lazy.layout.next(),     desc="Move window focus to other window"),
 
-    Key([mod], "Return",lazy.spawn('alacritty'),           desc="Launch terminal"),
+    Key([mod], "Return",lazy.spawn('alacritty'),        desc="Launch terminal"),
     Key([mod], "Tab",   lazy.next_layout(),             desc="Toggle between layouts"),
     Key([mod], "q",     lazy.window.kill(),             desc="Kill focused window"),
     Key([mod], "f",     lazy.window.toggle_floating(),  desc="Toggle floating on focused window"),
@@ -230,3 +230,5 @@ wl_xcursor_theme = None
 wl_xcursor_size = 24
 
 wmname = "qtile"
+
+hook.subscribe.startup_once(lazy.spawn('dex -a'))
