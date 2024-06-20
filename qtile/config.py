@@ -34,12 +34,19 @@ keys = [
     #Key([mod], "period",lazy.next_screen(),             desc='Move focus to next monitor'),
     #Key([mod], "comma", lazy.prev_screen(),             desc='Move focus to prev monitor'),
 
- #   KeyChord([mod], 'a',
-  #           [
-   #              Key([], 'e', lazy.spawn('thunar')),
-    #             Key([], 'b', lazy.spawn('brave')),
-     #            Key([], 'n', lazy.spawn('nvim')),
-      #           ]),
+    KeyChord([mod], 'a',
+             [
+                 Key([], 'e', lazy.spawn('thunar')),
+                 Key([], 'b', lazy.spawn('vivaldi')),
+                 Key([], 'n', lazy.spawn('nvim `fzf`')),
+                 ]),
+    KeyChord([mod], 's',
+             [
+                 Key([], 'h', lazy.spawn('htop')),
+                 Key([], 'b', lazy.spawn('blueman')),
+                 Key([], 'w', lazy.spawn('nvim')),
+                 ]),
+
     KeyChord([mod], 'e',
              [
                  Key([], '1', l_change_layout('monadtall')),
@@ -95,6 +102,7 @@ keys = [
 # Add key bindings to switch VTs in Wayland.
 # We can't check qtile.core.name in default config as it is loaded before qtile is started
 # We therefore defer the check until the key binding is run by using .when(func=...)
+'''
 for vt in range(1, 8):
     keys.append(
         Key(
@@ -104,7 +112,7 @@ for vt in range(1, 8):
             desc=f"Switch to VT{vt}",
         )
     )
-
+'''
 # name, lable,layout,;;layouts,spawn
 groups_name=[('1','...','monadtall')
             ,('2','yt','treetab')
@@ -231,4 +239,4 @@ wl_xcursor_size = 24
 
 wmname = "qtile"
 
-hook.subscribe.startup_once(lazy.spawn('dex -a'))
+hook.subscribe.startup_once(lazy.spawn(os.path.expanduser('~')+'/.config/autostart/autostart.sh'))

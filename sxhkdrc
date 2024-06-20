@@ -1,6 +1,6 @@
-super + Return
-	alacritty
-super + a; {n,e,t,b}
-	{nvim $(fzf), thunar, alacritty, vivaldi}
-super + s; {h,b}
-	{htop, blueman}
+#super + Return
+#	thunar
+#super + a; {n,e,t,b}
+#	{nvim $(fzf), thunar, alacritty, vivaldi}
+#super + s; {h,b}
+#	{htop, blueman}
