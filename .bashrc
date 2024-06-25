@@ -1,33 +1,38 @@
 # ~/.bashrc
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+#
+_imode='false' #false=running interactively
+[[ $- != *i* ]] && _imode = 'true'
+alias IM='$_imode || '
 
 HISTSIZE=HISTFILESIZE
-export PATH=$PATH:~/Desktop/scripts/bas
-export MANPAGER="nvim +Man!"
+IM	export PATH=$PATH:~/Desktop/scripts/bas
+	export MANPAGER="nvim +Man!"
+	export CS="None"
 
-export scr="$HOME/.scripts"
-export des="$HOME/Desktop"
-export dow="$HOME/Downloads"
-export bac="$HOME/backup"
-export git="$HOME/.git_repo"
+	export scr="$HOME/.scripts"
+	export des="$HOME/Desktop"
+	export dow="$HOME/Downloads"
+	export bac="$HOME/backup"
+	export git="$HOME/.git_repo"
 
-alias fcd='cd $(fzf --walker=dir,hidden,follow)'
-alias fman=$'man $(man -k . |fzf --tiebreak=begin -m | awk \'{print $1 $2}\')'
-alias fcmd="compgen -c | fzf | xargs man"
-alias ed='nvim'
-alias fed='nvim $(fzf)'
-alias ls='ls --color=auto'
-alias ll='ls -lah'
-alias grep='grep --color=auto'
-alias cp='cp -i'
-alias ln='ln -v'
-alias mkdir='mkdir -pv'
-
-
+IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
+IM	alias fman=$'man $(man -k . |fzf --tiebreak=begin -m | awk \'{print $1 $2}\')'
+IM	alias fcmd="compgen -c | fzf | xargs man"
+IM	alias ed='nvim'
+IM	alias fed='nvim $(fzf)'
+	alias ls='ls --color=auto'
+	alias ll='ls -lah'
+	alias grep='grep --color=auto'
+IM	alias cp='cp -i'
+IM	alias ln='ln -v'
+IM	alias mkdir='mkdir -pv'
+		
+IM \
 term(){ 
 	nohup alacritty $* &
 }
+
+IM \
 cmpl(){
 	local flags=''
 	case $1 in
@@ -46,6 +51,8 @@ cmpl(){
 	fi
 	echo $1 | entr -cs $cm; 	
 }
+
+IM \
 crsc(){ 
 	case $1 in
 		'-M')	cat ~/.scripts/tmplat/make_temp  >> Makefile && nvim Makefile	;;
@@ -56,4 +63,4 @@ crsc(){
 	esac
 }
 
-PS1='[\u@\h \W]\$ '
+IM	S1='[\u@\h \W]\$ '
