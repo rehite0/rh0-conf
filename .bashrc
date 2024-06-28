@@ -20,6 +20,7 @@ IM	alias scs='maim |tee ~/media/screen_shot/$(date +%s).png| xclip -selection cl
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
 IM	alias fman=$'man $(man -k . |fzf --tiebreak=begin -m | awk \'{print $1 $2}\')'
 IM	alias fcmd="compgen -c | fzf | xargs man"
+IM	alias fkill=$'kill $(ps -eF|fzf|awk \'{print $2}\')'
 IM	alias ed='nvim'
 IM	alias fed='nvim $(fzf)'
 	alias ls='ls --color=auto'
