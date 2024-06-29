@@ -1,4 +1,7 @@
+#doc:https://alacritty.org/config-alacritty.html
+import=[]
 working_directory ="None"
+live_config_reload = true
 
 [window]
 dimensions = { columns = 80, lines=25 }
@@ -17,7 +20,8 @@ resize_increments = false
 history =10000
 multiplier = 1
 
-[env]
+[selection]
+save_to_clipboard=true
 
 [font]
 
@@ -26,7 +30,9 @@ cursor ={ text = "CellBackground", cursor = "CellForeground" }
 vi_mode_cursor ={ text = "CellBackground", cursor = "#ac4242" }
 
 [keyboard]
-bindings = 	[{key ="Return", mods = "Control", action= "SpawnNewInstance"}
+bindings = 	[{key ="Return", mods = "Alt", action= "SpawnNewInstance"}
 		,{key ="Escape", mods = "Alt", action ="ToggleViMode"}
+		,{key ="q", mods = "Alt", action ="Quit"}
 		,
+
 ]
