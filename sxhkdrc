@@ -1,5 +1,5 @@
 #super + Return
-#	thunar
+#	alacritty
 #super + a; {n,e,t,b}
 #	{nvim $(fzf), thunar, alacritty, vivaldi}
 #super + s; {h,b}

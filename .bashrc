@@ -23,17 +23,14 @@ IM	alias fcmd="compgen -c | fzf | xargs man"
 IM	alias fkill=$'kill $(ps -eF|fzf|awk \'{print $2}\')'
 IM	alias ed='nvim'
 IM	alias fed='nvim $(fzf)'
-	alias ls='ls --color=auto'
-	alias ll='ls -lah'
-	alias grep='grep --color=auto'
+IM	alias ls='ls --color=auto'
+IM	alias ll='ls -lah'
+IM	alias grep='grep --color=auto'
 IM	alias cp='cp -i'
 IM	alias ln='ln -v'
+IM	alias rm='rm -v'
 IM	alias mkdir='mkdir -pv'
-		
-IM \
-term(){ 
-	nohup alacritty $* &
-}
+
 
 IM \
 cmpl(){

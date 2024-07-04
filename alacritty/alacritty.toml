@@ -30,9 +30,10 @@ cursor ={ text = "CellBackground", cursor = "CellForeground" }
 vi_mode_cursor ={ text = "CellBackground", cursor = "#ac4242" }
 
 [keyboard]
-bindings = 	[{key ="Return", mods = "Alt", action= "SpawnNewInstance"}
-		,{key ="Escape", mods = "Alt", action ="ToggleViMode"}
-		,{key ="q", mods = "Alt", action ="Quit"}
+bindings = 	[{key ="Return",	mods = "Alt", action= "SpawnNewInstance"}
+		,{key ="Escape",	mods = "Alt", action ="ToggleViMode"}
+		,{key ="q",		mods = "Alt", action ="Quit"}
 		,
 
 ]
+
