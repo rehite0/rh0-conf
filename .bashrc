@@ -5,7 +5,7 @@ _imode='true' #true if running interactively
 alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
-IM	export PATH=$PATH:~/Desktop/scripts/bas
+IM	export PATH=$PATH:~/Desktop/scripts
 	export MANPAGER="nvim +Man!"
 	export CS="None"
 
@@ -15,7 +15,7 @@ IM	export PATH=$PATH:~/Desktop/scripts/bas
 	export bac="$HOME/backup"
 	export git="$HOME/.git_repo"
 
-	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
+IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
 IM	alias scs='maim |tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
 IM	alias fman=$'man $(man -k . |fzf --tiebreak=begin -m | awk \'{print $1 $2}\')'
