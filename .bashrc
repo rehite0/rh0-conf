@@ -7,19 +7,20 @@ alias IM='$_imode && '
 HISTSIZE=HISTFILESIZE
 IM	export PATH=$PATH:~/.scripts
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/mypys
+	export MANWIDTH=999
 	export MANPAGER="nvim +Man!"
-	export CS="None"
+#	export CS="None"
 
-	export scr="$HOME/.scripts"
-	export des="$HOME/Desktop"
-	export dow="$HOME/Downloads"
-	export bac="$HOME/backup"
-	export git="$HOME/.git_repo"
+#	export scr="$HOME/.scripts"
+#	export des="$HOME/Desktop"
+#	export dow="$HOME/Downloads"
+#	export bac="$HOME/backup"
+#	export git="$HOME/.git_repo"
 
 IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
 IM	alias scs='maim |tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
-IM	alias fman=$'man $(man -k . |fzf --tiebreak=begin -m | awk \'{print $1 $2}\')'
+IM	alias fman=$'man -k . |fzf --tiebreak=begin -m | awk \'{print $1 $2}\' | xargs man'
 IM	alias fcmd="compgen -c | fzf | xargs man"
 IM	alias fkill=$'kill $(ps -eF|fzf|awk \'{print $2}\')'
 IM	alias ed='nvim'
@@ -59,8 +60,8 @@ crsc(){
 		'-M')	cat ~/.scripts/tmplat/make_temp  >> Makefile && nvim Makefile	;;
 		'-m')	cat ~/.scripts/tmplat/make_temp  >> makefile && nvim makefile	;;
 		'-p')	echo '#!/usr/bin/env python' >> $2 && chmod +x $2 && nvim $2	;;
-		'-b')	echo '#!/usr/bin/env bash' >> $2 && chmod +x $2 && nvim $2	;;
-		*)	echo '#!/usr/bin/env bash' >> $1 && chmod +x $1 && nvim $1	;;
+		'-b')	echo '#!/usr/bin/env bash' >> $2 && chmod +x $2 && nvim $2		;;
+		*)		echo '#!/usr/bin/env bash' >> $1 && chmod +x $1 && nvim $1		;;
 	esac
 }
 
