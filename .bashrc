@@ -7,7 +7,7 @@ alias IM='$_imode && '
 HISTSIZE=HISTFILESIZE
 IM	export PATH=$PATH:~/.scripts
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/mypys
-	export MANWIDTH=999
+	export MANWIDTH=100
 	export MANPAGER="nvim +Man!"
 #	export CS="None"
 
