@@ -1,0 +1,9 @@
+
+CFLAGS=-Wall -Wextra
+
+all: a.out
+	@echo 'compilation finished'
+a.out
+	cc $CFLAGS a.c -o a.out
+clean:
+	rm *.out *.o
