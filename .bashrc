@@ -6,16 +6,16 @@ alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
 IM	export PATH=$PATH:~/.scripts
-	export PYTHONPATH=$PYTHONPATH:~/.scripts/mypys
+	export PYTHONPATH=$PYTHONPATH:~/.scripts/mylibs/pylibs
 	export MANWIDTH=100
 	export MANPAGER="nvim +Man!"
 #	export CS="None"
 
-#	export scr="$HOME/.scripts"
-#	export des="$HOME/Desktop"
-#	export dow="$HOME/Downloads"
-#	export bac="$HOME/backup"
-#	export git="$HOME/.git_repo"
+	export scr="$HOME/.scripts"
+	export des="$HOME/Desktop"
+	export dow="$HOME/Downloads"
+	export bac="$HOME/backup"
+	export git="$HOME/.git_repo"
 
 IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
 IM	alias scs='maim |tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
