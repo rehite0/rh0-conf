@@ -20,9 +20,9 @@ IM	export PATH=$PATH:~/.scripts
 IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
 IM	alias scs='maim |tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
-IM	alias fman=$'man -k . |fzf --tiebreak=begin -m | awk \'{print $1 $2}\' | xargs man'
+IM	alias fman='man -k . | fzf --tiebreak=begin -m | awk '\''{print $1 $2}'\''| xargs man'
 IM	alias fcmd="compgen -c | fzf | xargs man"
-IM	alias fkill=$'kill $(ps -eF|fzf|awk \'{print $2}\')'
+IM	alias fkill='kill $(ps -eF|fzf|awk '\''{print $2}'\'')'
 IM	alias ed='nvim'
 IM	alias fed='nvim $(fzf)'
 IM	alias ls='ls --color=auto'
@@ -63,6 +63,13 @@ crsc(){
 		'-b')	echo '#!/usr/bin/env bash' >> $2 && chmod +x $2 && nvim $2		;;
 		*)		echo '#!/usr/bin/env bash' >> $1 && chmod +x $1 && nvim $1		;;
 	esac
+}
+
+IM \
+spy(){
+	local script_file='hi'
+	nvim ~/.t/spy/$script_file
+	python ~/.t/spy/$script_file
 }
 
 IM	S1='[\u@\h \W]\$ '
