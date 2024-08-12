@@ -65,13 +65,6 @@ crsc(){
 	esac
 }
 
-IM \
-spy(){
-	local script_file='hi'
-	nvim ~/.t/spy/$script_file
-	python ~/.t/spy/$script_file
-}
-
 IM	S1='[\u@\h \W]\$ '
 
 unalias IM
