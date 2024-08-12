@@ -6,11 +6,12 @@ lockscreen
 blender
 ly
 .qtile
-..sxhkdrc
+*sxhkdrc
 ..deploy.sh
 .nvim
 
 
 .=incomplete
 ..=unuseable
+*=done
 

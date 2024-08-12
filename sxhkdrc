@@ -1,32 +1,37 @@
+#check man page for details
+
+
 super; @super
-	rofi -show drun
+  rofi -show drun
 
 super + Return
-	alacritty
+  alacritty
 
 ctrl + shift +f
-	thunar
+  thunar
 
 super + XF86Display
-	blender
+  blender
 
 ctrl + shift + XF86Display
-	htop
+  htop
 
-ctrl + XF86RFKill				#aeroplane button
-	blueman-maneger
+#aeroplane button
+ctrl + XF86RFKill
+  blueman-maneger
 
 Insert; @Insert
-	nvim
+  nvim
 
 ctrl + shift +e
-	vivaldi
+  vivaldi
 
-super + Print	#fn-s
-	scs
+#fn-s
+super + Print
+  scs
 
 super + l
-	systemctl suspend
+  systemctl suspend
 
 #XF86AudioRaiseVolume
 #XF86AudioLowerVolume
