@@ -34,18 +34,6 @@ keys = [
     #Key([mod], "period",lazy.next_screen(),             desc='Move focus to next monitor'),
     #Key([mod], "comma", lazy.prev_screen(),             desc='Move focus to prev monitor'),
 
-    KeyChord([mod], 'a',
-             [
-                 Key([], 'e', lazy.spawn('thunar')),
-                 Key([], 'b', lazy.spawn('vivaldi')),
-                 Key([], 'n', lazy.spawn('nvim `fzf`')),
-                 ]),
-    KeyChord([mod], 's',
-             [
-                 Key([], 'h', lazy.spawn('htop')),
-                 Key([], 'b', lazy.spawn('blueman')),
-                 Key([], 'w', lazy.spawn('nvim')),
-                 ]),
 
     KeyChord([mod], 'e',
              [

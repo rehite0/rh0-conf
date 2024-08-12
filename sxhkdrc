@@ -1,6 +1,44 @@
-#super + Return
-#	alacritty
-#super + a; {n,e,t,b}
-#	{nvim $(fzf), thunar, alacritty, vivaldi}
-#super + s; {h,b}
-#	{htop, blueman}
+super; @super
+	rofi -show drun
+
+super + Return
+	alacritty
+
+ctrl + shift +f
+	thunar
+
+super + XF86Display
+	blender
+
+ctrl + shift + XF86Display
+	htop
+
+ctrl + XF86RFKill				#aeroplane button
+	blueman-maneger
+
+Insert; @Insert
+	nvim
+
+ctrl + shift +e
+	vivaldi
+
+super + Print	#fn-s
+	scs
+
+super + l
+	systemctl suspend
+
+#XF86AudioRaiseVolume
+#XF86AudioLowerVolume
+#XF86AudioMute
+#XF86AudioMicMute
+#XF86MonBrightnessUp
+#XF86MonBrightnessDown
+
+#Insert	#fn+e
+#Pause	#fn+w
+#Scroll_Lock #fn-c
+#KP_Enter	#fn-enter
+
+	
+
