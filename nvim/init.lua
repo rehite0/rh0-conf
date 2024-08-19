@@ -13,6 +13,7 @@ local op={
 	,mouse="a"
 	,clipboard ='unnamedplus'
 	,autoread=true
+	,autoindent=true
 }
 
 for k, v in pairs(op) do
