@@ -12,6 +12,7 @@ local op={
 	,swapfile =false
 	,mouse="a"
 	,clipboard ='unnamedplus'
+	,autoread=true
 }
 
 for k, v in pairs(op) do
