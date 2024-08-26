@@ -1,9 +1,10 @@
-rofi
+..rofi
 cmus
 dunst
 mpv
 lockscreen
 blender
+
 ly
 .qtile
 *sxhkdrc
