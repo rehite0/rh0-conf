@@ -25,7 +25,7 @@ typedef struct sl_node{
  *
  */
 
-void append_sl_list_ref(sl_node** head_ref, dtype val, int (*predicate)(dtype,dtype) );
+void insert_sl_list_ref(sl_node** head_ref, dtype val, int (*predicate)(dtype,dtype) );
 void pprint_sl_list(sl_node* head);
 void free_sl_list_ref(sl_node** head_ref);
 void rem_sl_list_ref_val(sl_node** head_ref,dtype val);
@@ -35,7 +35,7 @@ int len_sl_list(sl_node* head);
 sl_node* index_sl_list(sl_list* head,int idx);
 sl_node* pop_sl_list_ref(sl_node** head_ref);
 
-void append_sl_list_ref(sl_node** head_ref, dtype val, int (*predicate)(dtype,dtype) )
+void insert_sl_list_ref(sl_node** head_ref, dtype val, int (*predicate)(dtype,dtype) )
 /**************************************************************************
  * usr expected to FREE all mem after use
  * MODIFY 'head' of list after adding new node with value 'var'
