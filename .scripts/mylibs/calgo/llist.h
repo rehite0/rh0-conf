@@ -13,7 +13,6 @@
  * sl_node	-single link node
  *
  */
-#ifndef HEAP_TYPE
 typedef int dtype;
 typedef struct sl_node{
 	dtype val;
@@ -24,7 +23,7 @@ typedef struct sl_node{
  * code for sl_list starts here
  *
  */
-
+/home/rh0/Desktop/brave-ejndjkhlpajhjkbljnialfcdlpdlmclf-Profile_3.desktop 
 void insert_sl_list_ref(sl_node** head_ref, dtype val, int (*predicate)(dtype,dtype) );
 void pprint_sl_list(sl_node* head);
 void free_sl_list_ref(sl_node** head_ref);
@@ -62,7 +61,7 @@ void insert_sl_list_ref(sl_node** head_ref, dtype val, int (*predicate)(dtype,dt
 }//fn
 
 void pprint_sl_list(sl_node* head)
-/*print all item in llist *************************/
+//print all item in llist
 {
 	sl_node** tracer=&head;//can take format specifier as input using scanf or parametr
 	printf("printing sl_list at:%x",*tracer); 
