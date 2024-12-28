@@ -5,9 +5,10 @@ vim.g.mapleader=" "
 --make arrow unuasble in i mode
 --check :h motions
 vim.keymap.set("i","..","<ESC>")
-vim.keymap.set("n",";l","o<ESC>")
-vim.keymap.set("n",";k","ddkkp")
-vim.keymap.set("n",";j","ddp")
+vim.keymap.set("n","<Leader>l","o<ESC>")
+vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
+vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
+vim.keymap.set("n","<Leader>m",":make<CR>")
 
 --vim.keymap.set("n","<leader>pv",vim.cmd.Ex)
 
@@ -48,3 +49,11 @@ end
 
 --print("")
 --use :so to source
+--xfdgbfxhd
+--fxdhn
+--fxhbf
+--xfb
+--xfb
+--bxfb
+--ngc
+--gc
