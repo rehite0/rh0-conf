@@ -6,7 +6,7 @@ vim.g.mapleader=" "
 --check motions and key-notation
 vim.keymap.set("i","..","<ESC>")
 vim.keymap.set("n","<Leader>l","o<ESC>")
-vim.keymap.set("n","::",":!")
+vim.keymap.set("n","<Leader>:",":!")
 vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
 vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
 vim.keymap.set("n","<Leader>m",":make<CR>")
