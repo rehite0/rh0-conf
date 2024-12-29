@@ -49,11 +49,3 @@ end
 
 --print("")
 --use :so to source
---xfdgbfxhd
---fxdhn
---fxhbf
---xfb
---xfb
---bxfb
---ngc
---gc
