@@ -3,9 +3,10 @@ vim.g.mapleader=" "
 
 --key maps
 --make arrow unuasble in i mode
---check :h motions
+--check motions and key-notation
 vim.keymap.set("i","..","<ESC>")
 vim.keymap.set("n","<Leader>l","o<ESC>")
+vim.keymap.set("n","::",":!")
 vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
 vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
 vim.keymap.set("n","<Leader>m",":make<CR>")
@@ -32,6 +33,10 @@ local opt={
 	,autoindent	= true
 	,smartindent	= true
 	,encoding	= "utf-8"
+	,scrolloff	= 7
+	,nrformats	= 'hex'
+	,backspace	= "indent,eol,start"
+	,history	= 1000
 }
 --scripts
 
@@ -49,3 +54,6 @@ end
 
 --print("")
 --use :so to source
+--
+--plugin:
+--	fugitive
