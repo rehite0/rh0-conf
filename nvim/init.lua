@@ -57,3 +57,4 @@ end
 --
 --plugin:
 --	fugitive
+--	commentary
