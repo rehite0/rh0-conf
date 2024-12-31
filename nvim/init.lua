@@ -5,13 +5,19 @@ vim.g.mapleader=" "
 --make arrow unuasble in i mode
 --check motions and key-notation
 vim.keymap.set("i","..","<ESC>")
+
 vim.keymap.set("n","<Leader>l","o<ESC>")
 vim.keymap.set("n","<Leader>:",":!")
+
 vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
 vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
 vim.keymap.set("n","<Leader>m",":make<CR>")
+vim.keymap.set("n","<Leader>e",":Lex 30 <CR>")
 
---vim.keymap.set("n","<leader>pv",vim.cmd.Ex)
+vim.keymap.set("i","<Up>","<Nop>")
+vim.keymap.set("i","<Down>","<Nop>")
+vim.keymap.set("i","<Left>","<Nop>")
+vim.keymap.set("i","<Right>","<Nop>")
 
 --options check :h options
 local opt={
