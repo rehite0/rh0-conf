@@ -19,6 +19,9 @@ vim.keymap.set("i","<Down>","<Nop>")
 vim.keymap.set("i","<Left>","<Nop>")
 vim.keymap.set("i","<Right>","<Nop>")
 
+--user command
+vim.api.nvim_create_user_command("P","suspend",{desc="pause nvim"})
+
 --options check :h options
 local opt={
 	clipboard	= 'unnamedplus'
