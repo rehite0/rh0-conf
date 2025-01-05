@@ -5,6 +5,7 @@ vim.g.mapleader=" "
 --make arrow unuasble in i mode
 --check motions and key-notation
 vim.keymap.set("i",";;","<ESC>")
+vim.keymap.set("v","p",'"_dP')
 
 vim.keymap.set("n","<Leader>l","o<ESC>")
 vim.keymap.set("n","<Leader>:",":!")
