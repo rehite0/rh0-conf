@@ -1,5 +1,6 @@
---require("")
 vim.g.mapleader=" "
+vim.g.maplocalleader="\\"
+require("config.lazy")
 
 --key maps
 --make arrow unuasble in i mode
