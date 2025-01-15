@@ -1,9 +1,9 @@
 vim.g.mapleader=" "
 vim.g.maplocalleader="\\"
 require("config.lazy")
+require("python3.init")
 
 --key maps
---make arrow unuasble in i mode
 --check motions and key-notation
 vim.keymap.set("i",";;","<ESC>")
 vim.keymap.set("v","p",'"_dP')
@@ -16,6 +16,7 @@ vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
 vim.keymap.set("n","<Leader>m",":make<CR>")
 vim.keymap.set("n","<Leader>e",":Lex 30 <CR>")
 
+--make arrow unuasble in i mode
 vim.keymap.set("i","<Up>","<Nop>")
 vim.keymap.set("i","<Down>","<Nop>")
 vim.keymap.set("i","<Left>","<Nop>")
@@ -44,10 +45,11 @@ local opt={
 	,autoindent	= true
 	,smartindent	= true
 	,encoding	= "utf-8"
-	,scrolloff	= 7
+	,scrolloff	= 3
 	,nrformats	= 'hex'
 	,backspace	= "indent,eol,start"
 	,history	= 1000
+	,wrapscan	= true
 }
 --scripts
 
@@ -65,7 +67,4 @@ end
 
 --print("")
 --use :so to source
---
---plugin:
---	fugitive
---	commentary
+

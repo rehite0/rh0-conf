@@ -18,7 +18,7 @@ IM	export PATH=$PATH:~/.scripts:~/.local/bin
 	export git="$HOME/.git_repo"
 
 IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
-IM	alias scs='maim |tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
+IM	alias scs='maim -s|tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
 IM	alias fman='man -k . | fzf --tiebreak=begin -m | awk '\''{print $1 $2}'\''| xargs man'
 IM	alias fcmd="compgen -c | fzf | xargs man"
@@ -69,4 +69,3 @@ IM	S1='[\u@\h \W]\$ '
 
 unalias IM
 unset _imode
-
