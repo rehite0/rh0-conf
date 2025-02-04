@@ -15,5 +15,6 @@ return {
           		indent = { enable = true },  
         		})
     	end}
+	,{'eandrju/cellular-automaton.nvim'}
 
 }

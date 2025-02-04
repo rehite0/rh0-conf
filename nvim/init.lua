@@ -1,11 +1,14 @@
 vim.g.mapleader=" "
 vim.g.maplocalleader="\\"
 require("config.lazy")
+require("plug_conf")
 require("python3.init")
 
 --key maps
 --check motions and key-notation
+vim.keymap.set("i","[]","{<Enter>}<ESC>kA<Enter>")
 vim.keymap.set("i",";;","<ESC>")
+vim.keymap.set("v","i","<ESC>i")
 vim.keymap.set("v","p",'"_dP')
 
 vim.keymap.set("n","<Leader>l","o<ESC>")
