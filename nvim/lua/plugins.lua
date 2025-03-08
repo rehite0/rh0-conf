@@ -16,5 +16,10 @@ return {
         		})
     	end}
 	,{'eandrju/cellular-automaton.nvim'}
+	,{'mbbill/undotree'}
+	,{
+    	'nvim-lualine/lualine.nvim',
+    	dependencies = { 'nvim-tree/nvim-web-devicons' }
+	}
 
 }
