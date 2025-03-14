@@ -1,5 +1,11 @@
 # ~/.bashrc
 #
+
+#for login
+if [[ $(tty) = '/dev/tty3' ]] then
+	sudo chvt 2 && exit
+fi
+
 _imode='true' #true if running interactively
 [[ $- != *i* ]] && _imode='false'
 alias IM='$_imode && '
@@ -25,6 +31,7 @@ IM	alias fcmd="compgen -c | fzf | xargs man"
 IM	alias fkill='kill $(ps -eF|fzf|awk '\''{print $2}'\'')'
 IM	alias ed='nvim'
 IM	alias fed='nvim $(fzf)'
+IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
 IM	alias ls='ls --color=auto'
 IM	alias ll='ls -lah'
 IM	alias grep='grep --color=auto'
@@ -32,7 +39,9 @@ IM	alias cp='cp -i'
 IM	alias ln='ln -v'
 IM	alias rm='rm -v'
 IM	alias mkdir='mkdir -pv'
+IM	alias chmod='chmod -v'
 
+IM	qot
 
 IM \
 cmpl(){

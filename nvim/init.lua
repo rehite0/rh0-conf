@@ -1,7 +1,6 @@
 vim.g.mapleader=" "
 vim.g.maplocalleader="\\"
 require("config.lazy")
-require("plug_conf")
 require("python3.init")
 
 --key maps

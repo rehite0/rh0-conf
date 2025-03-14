@@ -1,13 +1,13 @@
 
 [window]
-dimensions = { columns = 80, lines=25 }
-position = "None"
+dimensions = { columns = 100, lines=30 }
+position = { x = 6, y = 6 }
 padding = { x = 6, y =6 }
-decorations = "Full"
+decorations = "None"
 opacity = 0.9
 blur = false
 startup_mode = "Windowed"
-title = "terminal"
+title = "term"
 dynamic_title =true
 decorations_theme_variant = "None"
 resize_increments = false
@@ -28,7 +28,9 @@ vi_mode_cursor ={ text = "CellBackground", cursor = "#ac4242" }
 [keyboard]
 bindings = 	[{key ="Return",	mods = "Alt", action= "SpawnNewInstance"}
 		,{key ="Escape",	mods = "Alt", action ="ToggleViMode"}
+		,{key =":", mods="Shift",mode="~Alt", action ="ToggleViMode"}
 		,{key ="q",		mods = "Alt", action ="Quit"}
+		,{key ="p",mode="Vi", action ="Paste"}
 		,
 
 ]
