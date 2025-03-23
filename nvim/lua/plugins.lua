@@ -41,4 +41,13 @@ return {
 	{
 		"neovim/nvim-lspconfig"
 	},
+	{ 'Sirver/ultisnips', config=utilsnips_conf},
+	{
+    	"hrsh7th/cmp-nvim-lsp"
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		config =cmp_conf,
+		dependencies={ 'quangnguyen30192/cmp-nvim-ultisnips' },
+	},
 }
