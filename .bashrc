@@ -11,7 +11,7 @@ _imode='true' #true if running interactively
 alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
-IM	export PATH=$PATH:~/.scripts:~/.local/bin
+	export PATH=$PATH:~/.scripts:~/.local/bin
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/mylibs/pylibs
 	export MANWIDTH=100
 	export MANPAGER="nvim +Man!"
