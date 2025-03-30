@@ -1,19 +1,34 @@
-snippet #<	"include header"
+snippet #<	"include header" Ab
 #include <${1:stdio}.h>
+
 endsnippet
+
 snippet #d "define macro"
 #define $1 $2
+
 endsnippet
+
 snippet p "printf"
 printf("$1");
+
 endsnippet
-snippet { "start block"
+
+snippet { "start block" i
 {
 	$1
 }
 endsnippet
+
 snippet /* "multiline comment"
 /*********************************************************\
 $1
 \*********************************************************/
+endsnippet
+
+snippet " "string qotation" i
+"$1"
+endsnippet
+
+snippet ( "parenthesis" i
+($1)
 endsnippet

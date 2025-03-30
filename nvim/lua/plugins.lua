@@ -1,7 +1,10 @@
 require("plug_conf")
 return {
 	{'morhetz/gruvbox'
-		,config = function() vim.cmd.colorscheme("gruvbox") end
+		,config = function() vim.cmd.colorscheme("gruvbox") 
+		vim.api.nvim_set_hl(0, "StatusLine", {reverse = false})
+		vim.api.nvim_set_hl(0, "StatusLineNC", {reverse = false})
+	end
 	}
 	,{"nvim-treesitter/nvim-treesitter"
 		,build = ":TSUpdate"
@@ -10,7 +13,7 @@ return {
 
     		configs.setup({
     			ensure_installed = { "c", "lua", "vim", "vimdoc","python","glsl"
-									,"query", "elixir", "heex", "javascript", "html" },
+									,"query", "elixir", "heex", "javascript", "html", "bash" },
           		sync_install = false,
           		highlight = { enable = true },
           		indent = { enable = true },  

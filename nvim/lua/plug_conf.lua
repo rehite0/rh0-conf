@@ -74,32 +74,29 @@ end
 
 lspconfig_on_attach=function(client)
 	print("LSP started.");
-	--require'completion'.on_attach(client)
-	--require'diagnostic'.on_attach(client)
 
-	vim.keymap.set('n','vi','<cmd>lua vim.lsp.buf.declaration()<CR>')
-	vim.keymap.set('n','vd','<cmd>lua vim.lsp.buf.definition()<CR>')
-	vim.keymap.set('n','vK','<cmd>lua vim.lsp.buf.hover()<CR>')
-	vim.keymap.set('n','vr','<cmd>lua vim.lsp.buf.references()<CR>')
-	vim.keymap.set('n','va','<cmd>lua vim.lsp.buf.signature_help()<CR>')
---	vim.keymap.set('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
---	vim.keymap.set('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
---	vim.keymap.set('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
---	vim.keymap.set('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
---	vim.keymap.set('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
---	vim.keymap.set('n','<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
---	vim.keymap.set('n','<leader>ee','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
---	vim.keymap.set('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
---	vim.keymap.set('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
---	vim.keymap.set('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
---	vim.keymap.set('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+	vim.keymap.set('n',';le','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+	vim.keymap.set('n',';lr','<cmd>lua vim.lsp.buf.references()<CR>')
+	vim.keymap.set('n',';lc','<cmd>lua vim.lsp.buf.definition()<CR>')
+	vim.keymap.set('n',';la','<cmd>lua vim.lsp.buf.signature_help()<CR>')
+	vim.keymap.set('n',';ld','<cmd>lua vim.lsp.buf.declaration()<CR>')
+	vim.keymap.set('n',';lk','<cmd>lua vim.lsp.buf.hover()<CR>')
+	vim.keymap.set('n',';li','<cmd>lua vim.lsp.buf.implementation()<CR>')
+	vim.keymap.set('n',';lt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
+	vim.keymap.set('n',';lgw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+	vim.keymap.set('n',';lw','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+	vim.keymap.set('n',';laf','<cmd>lua vim.lsp.buf.code_action()<CR>')
+	vim.keymap.set('n',';lar','<cmd>lua vim.lsp.buf.rename()<CR>')
+	vim.keymap.set('n',';l=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+	vim.keymap.set('n',';lli','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+	vim.keymap.set('n',';llo','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
 end
 
 utilsnips_conf=function()
 	vim.g.UltiSnipsExpandTrigger="<TAB>"
-	vim.g.UltiSnipsListSnippets='<A-l'
-	vim.g.UltiSnipsJumpForwardTrigger="<A-n>"
-	vim.g.UltiSnipsJumpBackwardTrigger="<A-p>"
+	vim.g.UltiSnipsListSnippets='</sl>'
+	vim.g.UltiSnipsJumpForwardTrigger="<leader>n"
+	vim.g.UltiSnipsJumpBackwardTrigger="<leader>b"
 	vim.g.UltiSnipsEditSplit="vertical"
 	vim.g.UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips/"
 end
@@ -117,14 +114,14 @@ cmp_conf= function()
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-b>"] = cmp.mapping.scroll_docs(-4),
-			["<C-f>"] = cmp.mapping.scroll_docs(4),
+			["<C-n>"] = cmp.mapping.scroll_docs(4),
 			["<C-Space>"] = cmp.mapping.complete(),
-			["<C-e>"] = cmp.mapping.abort(),
+			["/<bs>"] = cmp.mapping.abort(),
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		}),
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
-			{ name = 'ultisnips' },	
+			{ name = 'ultisnips' },
 			}, {
 			{ name = "buffer" },
 		}),
