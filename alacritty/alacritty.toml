@@ -28,7 +28,7 @@ vi_mode_cursor ={ text = "CellBackground", cursor = "#ac4242" }
 [keyboard]
 bindings = 	[{key ="Return",	mods = "Alt", action= "SpawnNewInstance"}
 		,{key ="Escape",	mods = "Alt", action ="ToggleViMode"}
-		,{key =":", mods="Shift",mode="~Alt", action ="ToggleViMode"}
+	#	,{key =":", mods="Shift",mode="~Alt", action ="ToggleViMode"}
 		,{key ="q",		mods = "Alt", action ="Quit"}
 		,{key ="p",mode="Vi", action ="Paste"}
 		,

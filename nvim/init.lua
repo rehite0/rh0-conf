@@ -5,12 +5,10 @@ require("python3.init")
 
 --key maps
 --check motions and key-notation
-vim.keymap.set("i","[]","{<Enter>}<ESC>kA<Enter>")
 vim.keymap.set("i",";;","<ESC>")
-vim.keymap.set("v","i","<ESC>i")
 vim.keymap.set("v","p",'"_dP')
 
-vim.keymap.set("n","<Leader>l","o<ESC>")
+vim.keymap.set("n","<Leader><CR>","o<ESC>")
 vim.keymap.set("n","<Leader>:",":!")
 
 vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
@@ -30,7 +28,7 @@ vim.api.nvim_create_user_command("P","suspend",{desc="pause nvim"})
 --options check :h options
 local opt={
 	clipboard	= 'unnamedplus'
-	,tabstop	= 4
+	--,tabstop	= 4
 	,number		= true
 	,relativenumber	= false
 	,numberwidth	= 3

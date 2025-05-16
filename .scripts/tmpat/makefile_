@@ -1,9 +1,11 @@
-
+CC=gcc
 CFLAGS=-Wall -Wextra
+#CPPFLAGS=
+#LDFLAGS=
+#LDLIBS=
 
 all: a.out
 	@echo 'compilation finished'
-a.out:
-	cc $(CFLAGS) A.c -o a.out
 clean:
-	rm *.out *.o
+	rm -f *.out *.o
+.PHONY: all clean

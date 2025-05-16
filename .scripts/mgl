@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+pushd ~/.venv/mgl
+. ./bin/activate
+manimgl $@
+deactivate
+popd

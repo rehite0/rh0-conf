@@ -94,9 +94,9 @@ end
 
 utilsnips_conf=function()
 	vim.g.UltiSnipsExpandTrigger="<TAB>"
-	vim.g.UltiSnipsListSnippets='</sl>'
-	vim.g.UltiSnipsJumpForwardTrigger="<leader>n"
-	vim.g.UltiSnipsJumpBackwardTrigger="<leader>b"
+	vim.g.UltiSnipsListSnippets=';sl'
+	vim.g.UltiSnipsJumpForwardTrigger="<c-s-.>"
+	vim.g.UltiSnipsJumpBackwardTrigger="<c-s-,>"
 	vim.g.UltiSnipsEditSplit="vertical"
 	vim.g.UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips/"
 end
@@ -109,14 +109,14 @@ cmp_conf= function()
 			end,
 		},
 		window = {
-		completion = cmp.config.window.bordered(),
+		--completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 		},
 		mapping = cmp.mapping.preset.insert({
 			["<C-b>"] = cmp.mapping.scroll_docs(-4),
 			["<C-n>"] = cmp.mapping.scroll_docs(4),
 			["<C-Space>"] = cmp.mapping.complete(),
-			["/<bs>"] = cmp.mapping.abort(),
+			["<nop>"] = cmp.mapping.abort(),
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		}),
 		sources = cmp.config.sources({

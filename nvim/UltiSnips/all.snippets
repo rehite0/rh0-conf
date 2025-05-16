@@ -6,5 +6,9 @@ $1
 									-rh
 endsnippet
 snippet `qot "print a quotation"
-`echo $(qot)`
+`qot`
+endsnippet
+
+snippet #! "insert shebang"
+`echo '#!/usr/bin/env '`${1:bash}
 endsnippet
