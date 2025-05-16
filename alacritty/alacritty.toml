@@ -35,6 +35,8 @@ bindings = 	[{key ="Return",	mods = "Alt", action= "SpawnNewInstance"}
 
 ]
 
+[mouse]
+
 [general]
 live_config_reload = true
 working_directory ="None"

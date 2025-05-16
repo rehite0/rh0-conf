@@ -6,7 +6,7 @@ require("python3.init")
 --key maps
 --check motions and key-notation
 vim.keymap.set("i",";;","<ESC>")
-vim.keymap.set("v","p",'"_dP')
+vim.keymap.set("v","p",'"_dp<CR>')
 
 vim.keymap.set("n","<Leader><CR>","o<ESC>")
 vim.keymap.set("n","<Leader>:",":!")
@@ -51,6 +51,24 @@ local opt={
 	,history	= 1000
 	,wrapscan	= true
 }
+vim.cmd([[
+    :anoremenu	PopUp.tools.terminal	<ESC>:call system('alacritty'<CR>
+    :anoremenu	PopUp.tools.man		<ESC>:call system('alacritty -e bash -i -c fman'<CR>
+    :anoremenu	PopUp.tools.thunar	<ESC>:call system('thunar'<CR>
+    :anoremenu	PopUp.tools.make	<ESC>:w<CR>:Make<CR>
+    :anoremenu	PopUp.tools.gdb		<ESC>:w<CR>:call system('alacritty -e bash -c gdb'<CR>
+
+    :anoremenu	PopUp.file.explore	<ESC>:lex 30<CR>
+    :anoremenu	PopUp.file.save		<ESC>:w
+    :anoremenu	PopUp.file.save&exit	<ESC>:x
+    :anoremenu	PopUp.file.exit		<ESC>:q!
+
+    :anoremenu	PopUp.edit.delete	<ESC>d
+    :anoremenu	PopUp.edit.yank		<ESC>y
+    :anoremenu	PopUp.edit.put		<ESC>p
+
+    :anoremenu	PopUp.lsp.nop		<ESC>
+]])
 --scripts
 
 --auto command :h autocmd
