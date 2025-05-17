@@ -9,7 +9,7 @@ vim.keymap.set("i",";;","<ESC>")
 vim.keymap.set("v","p",'"_dp<CR>')
 
 vim.keymap.set("n","<Leader><CR>","o<ESC>")
-vim.keymap.set("n","<Leader>:",":!")
+vim.keymap.set("n","<Leader>;",":E")
 
 vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
 vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
@@ -23,7 +23,8 @@ vim.keymap.set("i","<Left>","<Nop>")
 vim.keymap.set("i","<Right>","<Nop>")
 
 --user command
-vim.api.nvim_create_user_command("P","suspend",{desc="pause nvim"})
+vim.api.nvim_create_user_command("Ep","suspend",{desc="pause nvim"})
+vim.api.nvim_create_user_command("Et","call system('alacritty')",{desc="launch terminal"})
 
 --options check :h options
 local opt={
@@ -52,23 +53,44 @@ local opt={
 	,wrapscan	= true
 }
 vim.cmd([[
-    :anoremenu	PopUp.tools.terminal	<ESC>:call system('alacritty'<CR>
-    :anoremenu	PopUp.tools.man		<ESC>:call system('alacritty -e bash -i -c fman'<CR>
-    :anoremenu	PopUp.tools.thunar	<ESC>:call system('thunar'<CR>
-    :anoremenu	PopUp.tools.make	<ESC>:w<CR>:Make<CR>
-    :anoremenu	PopUp.tools.gdb		<ESC>:w<CR>:call system('alacritty -e bash -c gdb'<CR>
+    aunmenu PopUp
+    anoremenu	PopUp.terminal	<cmd>call system('alacritty')<CR>
+    anoremenu	PopUp.man	<cmd>call system('alacritty -e bash -i -c fman')<CR>
+    anoremenu	PopUp.thunar	<cmd>call system('thunar')<CR>
+    anoremenu	PopUp.make	<cmd>w<CR><cmd>Make<CR>
+    anoremenu	PopUp.gdb	<cmd>w<CR><cmd>call system('alacritty -e bash -c gdb')<CR>
 
-    :anoremenu	PopUp.file.explore	<ESC>:lex 30<CR>
-    :anoremenu	PopUp.file.save		<ESC>:w
-    :anoremenu	PopUp.file.save&exit	<ESC>:x
-    :anoremenu	PopUp.file.exit		<ESC>:q!
+    anoremenu	PopUp.explore	<cmd>lex 30<CR>
+    anoremenu	PopUp.save	<cmd>w<cr>
+    anoremenu	PopUp.save&exit	<cmd>x<cr>
+    anoremenu	PopUp.exit	<cmd>q!<cr>
+    anoremenu	PopUp.delete	<cmd>d<cr>
+    anoremenu	PopUp.yank	<cmd>y<cr>
+    anoremenu	PopUp.put	<cmd>p<cr>
 
-    :anoremenu	PopUp.edit.delete	<ESC>d
-    :anoremenu	PopUp.edit.yank		<ESC>y
-    :anoremenu	PopUp.edit.put		<ESC>p
-
-    :anoremenu	PopUp.lsp.nop		<ESC>
+    anoremenu	PopUp.lsp	<ESC>
+    amenu     PopUp.URL         gx
 ]])
+
+local group = vim.api.nvim_create_augroup("nvim.popupmenu", { clear = true })
+vim.api.nvim_create_autocmd("MenuPopup", {
+  pattern = "*",
+  group = group,
+  desc = "Custom PopUp Setup",
+  callback = function()
+    vim.cmd [[
+      amenu disable PopUp.lsp
+    ]]
+
+    if vim.lsp.get_clients({ bufnr = 0 })[1] then
+      vim.cmd [[
+        amenu enable PopUp.lsp
+    ]]
+    end
+  end,
+})
+
+
 --scripts
 
 --auto command :h autocmd
@@ -84,6 +106,5 @@ for k,v in pairs(opt) do
 end
 
 
---print("")
 --use :so to source
 
