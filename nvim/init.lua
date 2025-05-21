@@ -23,8 +23,9 @@ vim.keymap.set("i","<Left>","<Nop>")
 vim.keymap.set("i","<Right>","<Nop>")
 
 --user command
-vim.api.nvim_create_user_command("Ep","suspend",{desc="pause nvim"})
-vim.api.nvim_create_user_command("Et","call system('alacritty')",{desc="launch terminal"})
+vim.api.nvim_create_user_command("Epause","suspend",{desc="pause nvim"})
+vim.api.nvim_create_user_command("Eterm","call system('alacritty')",{desc="launch terminal"})
+vim.api.nvim_create_user_command("Elsp","popup lsp",{desc="launch lsp menu"})
 
 --options check :h options
 local opt={
@@ -46,7 +47,7 @@ local opt={
 	,autoindent	= true
 	,smartindent	= true
 	,encoding	= "utf-8"
-	,scrolloff	= 3
+	,scrolloff	= 2
 	,nrformats	= 'hex'
 	,backspace	= "indent,eol,start"
 	,history	= 1000
@@ -68,7 +69,19 @@ vim.cmd([[
     anoremenu	PopUp.yank	<cmd>y<cr>
     anoremenu	PopUp.put	<cmd>p<cr>
 
-    anoremenu	PopUp.lsp	<ESC>
+    anoremenu	PopUp.lsp	<cmd>popup lsp<cr>
+    anoremenu	lsp.references		<cmd>lua vim.lsp.buf.references()<cr>
+    anoremenu	lsp.type_definition	<cmd>lua vim.lsp.buf.type_definition()<cr>
+    anoremenu	lsp.typehierarchy		<cmd>lua vim.lsp.buf.typehierarchy()<cr>
+    anoremenu	lsp.workspace_symbol	<cmd>lua vim.lsp.buf.workspace_symbol()<cr>
+    anoremenu	lsp.document_symbol	<cmd>lua vim.lsp.buf.document_symbol()<cr>
+    anoremenu	lsp.signature_help	<cmd>lua vim.lsp.buf.signature_help()<cr>
+    anoremenu	lsp.incoming_calls	<cmd>lua vim.lsp.buf.incoming_calls()<cr>
+    anoremenu	lsp.implementation	<cmd>lua vim.lsp.buf.implementation()<cr>
+    anoremenu	lsp.hover			<cmd>lua vim.lsp.buf.hover()<cr>
+    anoremenu	lsp.format		<cmd>lua vim.lsp.buf.format()<cr>
+    anoremenu	lsp.definition		<cmd>lua vim.lsp.buf.definition()<cr>
+    anoremenu	lsp.declaration		<cmd>lua vim.lsp.buf.declaration()<cr>
     amenu     PopUp.URL         gx
 ]])
 

@@ -12,5 +12,6 @@
   "nvim-treesitter": { "branch": "master", "commit": "ee8e149a4ff75ebd5f1b065831746ddaf0e480ec" },
   "nvim-web-devicons": { "branch": "master", "commit": "ab4cfee554e501f497bce0856788d43cf2eb93d7" },
   "ultisnips": { "branch": "master", "commit": "dbc458e110bb49299da76ec53f8b09b4f6dce28a" },
-  "undotree": { "branch": "master", "commit": "76c4e32d8f1aa493bb68d4a3fcd3c700395c303c" }
+  "undotree": { "branch": "master", "commit": "76c4e32d8f1aa493bb68d4a3fcd3c700395c303c" },
+  "vim-indent-object": { "branch": "master", "commit": "8ab36d5ec2a3a60468437a95e142ce994df598c6" }
 }

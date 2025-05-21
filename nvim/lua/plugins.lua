@@ -53,4 +53,7 @@ return {
 		config =cmp_conf,
 		dependencies={ 'quangnguyen30192/cmp-nvim-ultisnips' },
 	},
+	{
+		'michaeljsmith/vim-indent-object',
+	},
 }
