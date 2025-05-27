@@ -70,6 +70,7 @@ vim.cmd([[
     anoremenu	PopUp.put	<cmd>p<cr>
 
     anoremenu	PopUp.lsp	<cmd>popup lsp<cr>
+    anoremenu	lsp.diagnostic		<cmd>lua vim.diagnostic.open_float()<cr>
     anoremenu	lsp.references		<cmd>lua vim.lsp.buf.references()<cr>
     anoremenu	lsp.type_definition	<cmd>lua vim.lsp.buf.type_definition()<cr>
     anoremenu	lsp.typehierarchy		<cmd>lua vim.lsp.buf.typehierarchy()<cr>

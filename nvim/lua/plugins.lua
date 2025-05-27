@@ -1,14 +1,14 @@
 require("plug_conf")
 return {
 	{'morhetz/gruvbox'
-		,config = function() vim.cmd.colorscheme("gruvbox") 
+		,config = function() vim.cmd.colorscheme("gruvbox")
 		vim.api.nvim_set_hl(0, "StatusLine", {reverse = false})
 		vim.api.nvim_set_hl(0, "StatusLineNC", {reverse = false})
 	end
 	}
 	,{"nvim-treesitter/nvim-treesitter"
 		,build = ":TSUpdate"
-		,config = function () 
+		,config = function ()
       		local configs = require("nvim-treesitter.configs")
 
     		configs.setup({
@@ -16,7 +16,7 @@ return {
 									,"query", "elixir", "heex", "javascript", "html", "bash" },
           		sync_install = false,
           		highlight = { enable = true },
-          		indent = { enable = true },  
+          		indent = { enable = true },
         		})
     	end}
 	,{	'eandrju/cellular-automaton.nvim'
@@ -46,7 +46,7 @@ return {
 	},
 	{ 'Sirver/ultisnips', config=utilsnips_conf},
 	{
-    	"hrsh7th/cmp-nvim-lsp"
+		"hrsh7th/cmp-nvim-lsp"
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -55,5 +55,14 @@ return {
 	},
 	{
 		'michaeljsmith/vim-indent-object',
+	},
+	{
+		'tpope/vim-commentary',
+		config= function()
+			vim.cmd('filetype plugin indent on')
+			end
+	},
+	{
+		'tpope/vim-surround'
 	},
 }

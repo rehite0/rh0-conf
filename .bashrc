@@ -40,6 +40,7 @@ IM	alias ln='ln -v'
 IM	alias rm='rm -v'
 IM	alias mkdir='mkdir -pv'
 IM	alias chmod='chmod -v'
+IM	alias wcc='cc -Wall -Wextra -Wpedantic -Wconversion -Werror'
 IM	alias py='python'
 
 IM	qot
