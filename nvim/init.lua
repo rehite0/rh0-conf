@@ -6,7 +6,7 @@ require("python3.init")
 --key maps
 --check motions and key-notation
 vim.keymap.set("i",";;","<ESC>")
-vim.keymap.set("v","p",'"_dp<CR>')
+vim.keymap.set({"i","v","n"},";l",'<cmd>popu lsp<cr>')
 
 vim.keymap.set("n","<Leader><CR>","o<ESC>")
 vim.keymap.set("n","<Leader>;",":E")
