@@ -68,10 +68,10 @@ cmpl(){
 IM \
 crsc(){ 
 	case $1 in
-		'-M')	cat ~/.scripts/tmplat/make_temp  >> Makefile && nvim Makefile	;;
-		'-m')	cat ~/.scripts/tmplat/make_temp  >> makefile && nvim makefile	;;
-		'-p')	echo '#!/usr/bin/env python' >> $2 && chmod +x $2 && nvim $2	;;
-		'-b')	echo '#!/usr/bin/env bash' >> $2 && chmod +x $2 && nvim $2		;;
+		'-M')	cat ~/.scripts/tmpat/makefile_  > Makefile && nvim Makefile	;;
+		'-m')	cat ~/.scripts/tmpat/makefile_  > makefile && nvim makefile	;;
+		'-p')	echo '#!/usr/bin/env python' > $2 && chmod +x $2 && nvim $2	;;
+		'-b')	echo '#!/usr/bin/env bash' > $2 && chmod +x $2 && nvim $2		;;
 		*)		echo '#!/usr/bin/env bash' >> $1 && chmod +x $1 && nvim $1		;;
 	esac
 }
