@@ -23,14 +23,14 @@ HISTSIZE=HISTFILESIZE
 	export bac="$HOME/backup"
 	export git="$HOME/.git_repo"
 
+IM	alias ed='nvim'
+IM	alias py='python'
+IM	alias wcc='gcc -Wall -Wextra -Wpedantic -Wconversion -Werror -Winline'
+IM	alias fman='man -k . | fzf --tiebreak=begin -m | awk '\''{print $1 $2}'\''| xargs man'
 IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
 IM	alias scs='maim -s|tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
-IM	alias fman='man -k . | fzf --tiebreak=begin -m | awk '\''{print $1 $2}'\''| xargs man'
-IM	alias fcmd="compgen -c | fzf | xargs man"
 IM	alias fkill='kill $(ps -eF|fzf|awk '\''{print $2}'\'')'
-IM	alias ed='nvim'
-IM	alias fed='nvim $(fzf)'
 IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
 IM	alias ls='ls --color=auto'
 IM	alias ll='ls -lah'
@@ -40,8 +40,6 @@ IM	alias ln='ln -v'
 IM	alias rm='rm -v'
 IM	alias mkdir='mkdir -pv'
 IM	alias chmod='chmod -v'
-IM	alias wcc='cc -Wall -Wextra -Wpedantic -Wconversion -Werror'
-IM	alias py='python'
 
 IM	qot
 
