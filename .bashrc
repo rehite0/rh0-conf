@@ -15,7 +15,7 @@ HISTSIZE=HISTFILESIZE
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/mylibs/pylibs
 	export MANWIDTH=100
 	export MANPAGER="nvim +Man!"
-#	export CS="None"
+	export FCEDIT="nvim"
 
 	export scr="$HOME/.scripts"
 	export des="$HOME/Desktop"
