@@ -1,0 +1,12 @@
+-ggdb
+-Werror
+-Wall
+-Wextra
+-Wpedantic
+-Wconversion
+-Winline
+-Wshadow
+-Wfloat-equal
+-Wunreachable-code
+-Winit-self
+-Wuninitialized
