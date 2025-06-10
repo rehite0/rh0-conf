@@ -16,6 +16,7 @@ HISTSIZE=HISTFILESIZE
 	export MANWIDTH=100
 	export MANPAGER="nvim +Man!"
 	export FCEDIT="nvim"
+	export EDITOR="nvim"
 
 	export scr="$HOME/.scripts"
 	export des="$HOME/Desktop"
@@ -23,6 +24,7 @@ HISTSIZE=HISTFILESIZE
 	export bac="$HOME/backup"
 	export git="$HOME/.git_repo"
 
+IM	set -o vi
 IM	alias ed='nvim'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
