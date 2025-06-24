@@ -53,6 +53,7 @@ local opt={
 	,backspace		= "indent,eol,start"
 	,history		= 1000
 	,wrapscan		= true
+	,virtualedit		='block'
 }
 vim.cmd([[
 	aunmenu PopUp
