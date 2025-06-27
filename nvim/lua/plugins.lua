@@ -65,4 +65,7 @@ return {
 	{
 		'tpope/vim-surround'
 	},
+	{
+		'kmonad/kmonad-vim'
+	},
 }

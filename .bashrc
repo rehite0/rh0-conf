@@ -25,10 +25,10 @@ HISTSIZE=HISTFILESIZE
 	export git="$HOME/.git_repo"
 
 IM	set -o vi
+IM	alias g='git'
 IM	alias ed='nvim'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
-IM	alias fman='man -k . | fzf --tiebreak=begin -m | awk '\''{print $1 $2}'\''| xargs man'
 IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
 IM	alias scs='maim -s|tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
@@ -45,6 +45,16 @@ IM	alias chmod='chmod -v'
 
 IM	qot
 
+IM \
+fman(){
+	local pg="$(man -k . |fzf --tiebreak=begin -m|awk '{gsub(/[()]/,"");print $2 " " $1}')"
+	if [[ "$pg" == "" ]]; then
+		echo 'nothing selected!!'
+	else
+		man $pg
+	fi
+}
+	
 IM \
 cmpl(){
 	local flags=''
