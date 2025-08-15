@@ -1,11 +1,16 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -Wpedantic -Wconversion -Werror
+CFLAGS= -ggdb #-Ofast -march='native' -pthread #-ffinite-math-only -freciprocal-math
+CFLAGS+= -Wall -Wextra -Wpedantic -Wconversion -Werror -Winline -Wshadow -Wfloat-equal
+CFLAGS+= -Wunreachable-code -Winit-self -Wuninitialized
+#CFLAGS+= -fsanitize=undefined
 #CPPFLAGS=
 #LDFLAGS=
-#LDLIBS=
+LDLIBS= #-lm -lpthread
 
 all: a.out
 	@echo 'compilation finished'
+a.out:a.c
+	${CC} ${CFLAGS} ${LDLIBS} a.c -o a.out
 clean:
 	rm -f *.out *.o
 .PHONY: all clean

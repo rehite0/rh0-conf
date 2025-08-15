@@ -23,6 +23,7 @@ HISTSIZE=HISTFILESIZE
 	export dow="$HOME/Downloads"
 	export bac="$HOME/backup"
 	export git="$HOME/.git_repo"
+	[ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
 
 IM	set -o vi
 IM	alias g='git'
@@ -90,3 +91,4 @@ IM	S1='[\u@\h \W]\$ '
 
 unalias IM
 unset _imode
+

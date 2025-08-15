@@ -75,7 +75,7 @@ end
 lspconfig_on_attach=function(client)
 	print("LSP started.");
 
---	vim.keymap.set('n',';le','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+	-- vim.keymap.set('n',';le','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
 --	vim.keymap.set('n',';lr','<cmd>lua vim.lsp.buf.references()<CR>')
 --	vim.keymap.set('n',';lc','<cmd>lua vim.lsp.buf.definition()<CR>')
 --	vim.keymap.set('n',';la','<cmd>lua vim.lsp.buf.signature_help()<CR>')
@@ -112,12 +112,20 @@ cmp_conf= function()
 		--completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 		},
+		view={docs={auto_open=false}},
 		mapping = cmp.mapping.preset.insert({
-			["<C-b>"] = cmp.mapping.scroll_docs(-4),
-			["<C-n>"] = cmp.mapping.scroll_docs(4),
+			["<c-h>"] = function()
+				if(cmp.visible_docs()) then cmp.close_docs()
+				else cmp.open_docs() end end,
+			["<C-j>"] = function()
+				if(cmp.visible_docs())then cmp.scroll_docs(4)
+				else cmp.select_next_item() end end,
+			["<C-k>"] = function()
+				if(cmp.visible_docs())then cmp.scroll_docs(-4)
+				else cmp.select_prev_item() end end,
 			["<C-Space>"] = cmp.mapping.complete(),
-			["<nop>"] = cmp.mapping.abort(),
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<ESC>"] = cmp.mapping.abort(),
+			["<TAB>"] = cmp.mapping.confirm({ select = true }),
 		}),
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },

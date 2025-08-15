@@ -13,7 +13,7 @@ return {
 
     		configs.setup({
     			ensure_installed = { "c", "lua", "vim", "vimdoc","python","glsl"
-									,"query", "elixir", "heex", "javascript", "html", "bash" },
+					,"query", "elixir", "heex", "javascript", "html", "bash" },
           		sync_install = false,
           		highlight = { enable = true },
           		indent = { enable = true },
