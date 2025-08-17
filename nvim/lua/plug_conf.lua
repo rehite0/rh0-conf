@@ -1,14 +1,22 @@
 cellular_automaton_conf=function()
-	vim.keymap.set("n","<leader>mir","<cmd>CellularAutomaton make_it_rain<CR>")
+	mir =function()
+		vim.cmd(
+			[[	let f= &wrap 
+				if f
+					set nowrap
+				endif
+				CellularAutomaton make_it_rain
+			 ]])
+	end
+	vim.keymap.set("n","<leader>mir",mir)
 	vim.keymap.set("n","<leader>gol","<cmd>CellularAutomaton game_of_life<CR>")
-	vim.api.nvim_create_user_command("MIR","CellularAutomaton make_it_rain",{desc="run animation"})
-	vim.api.nvim_create_user_command("GOL","CellularAutomaton game_of_life",{desc="run animation"})
+	vim.api.nvim_create_user_command("Emir",mir,{desc="run animation"})
+	vim.api.nvim_create_user_command("Egol","CellularAutomaton game_of_life",{desc="run animation"})
 end
 
 undotree_conf=function()
 	vim.keymap.set("n","<leader>u","<cmd>UndotreeToggle<CR>")
 end
-
 lualine_conf=function()
 	require 'lualine'.setup{
 		sections = {
@@ -124,7 +132,7 @@ cmp_conf= function()
 				if(cmp.visible_docs())then cmp.scroll_docs(-4)
 				else cmp.select_prev_item() end end,
 			["<C-Space>"] = cmp.mapping.complete(),
-			["<ESC>"] = cmp.mapping.abort(),
+			["<s-TAB>"] = cmp.mapping.abort(),
 			["<TAB>"] = cmp.mapping.confirm({ select = true }),
 		}),
 		sources = cmp.config.sources({
