@@ -1,5 +1,4 @@
-# ~/.bashrc
-#
+#@~/.bashrc
 
 #for login
 if [[ $(tty) = '/dev/tty3' ]] then
@@ -26,6 +25,7 @@ HISTSIZE=HISTFILESIZE
 	[ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
 
 IM	set -o vi
+IM	shopt -s autocd
 IM	alias g='git'
 IM	alias ed='nvim'
 IM	alias py='python'

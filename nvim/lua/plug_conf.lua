@@ -83,12 +83,12 @@ end
 lspconfig_on_attach=function(client)
 	print("LSP started.");
 
-	-- vim.keymap.set('n',';le','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
---	vim.keymap.set('n',';lr','<cmd>lua vim.lsp.buf.references()<CR>')
---	vim.keymap.set('n',';lc','<cmd>lua vim.lsp.buf.definition()<CR>')
+	vim.keymap.set('n',';le','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+	vim.keymap.set('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
+	vim.keymap.set('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
+	vim.keymap.set('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
 --	vim.keymap.set('n',';la','<cmd>lua vim.lsp.buf.signature_help()<CR>')
 --	vim.keymap.set('n',';ld','<cmd>lua vim.lsp.buf.declaration()<CR>')
---	vim.keymap.set('n',';lk','<cmd>lua vim.lsp.buf.hover()<CR>')
 --	vim.keymap.set('n',';li','<cmd>lua vim.lsp.buf.implementation()<CR>')
 --	vim.keymap.set('n',';lt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
 --	vim.keymap.set('n',';lgw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
