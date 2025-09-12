@@ -82,22 +82,29 @@ end
 
 lspconfig_on_attach=function(client)
 	print("LSP started.");
-
-	vim.keymap.set('n',';le','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
-	vim.keymap.set('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
-	vim.keymap.set('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
-	vim.keymap.set('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
---	vim.keymap.set('n',';la','<cmd>lua vim.lsp.buf.signature_help()<CR>')
---	vim.keymap.set('n',';ld','<cmd>lua vim.lsp.buf.declaration()<CR>')
---	vim.keymap.set('n',';li','<cmd>lua vim.lsp.buf.implementation()<CR>')
---	vim.keymap.set('n',';lt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
---	vim.keymap.set('n',';lgw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
---	vim.keymap.set('n',';lw','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
---	vim.keymap.set('n',';laf','<cmd>lua vim.lsp.buf.code_action()<CR>')
---	vim.keymap.set('n',';lar','<cmd>lua vim.lsp.buf.rename()<CR>')
---	vim.keymap.set('n',';l=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
---	vim.keymap.set('n',';lli','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
---	vim.keymap.set('n',';llo','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+	local bufopts = { noremap=true, silent=true, }
+	local mapping={
+		hover={'n','[h'}
+		,references={'n', '[r'}	--gr
+		,signature_help={'n','[s'}
+		,declaration={'n','[D'}	--gD
+		,definition={'n','[d'}	--gd
+		,implementation={'n','[i'}	--gi
+		,add_workspace_folder={'n','[wa'}
+		,remove_workspace_folder={'n','[wr'}
+		,type_definition={'n','[td'}
+		,rename={'n','[rn'}
+		,code_action={'n','[ca'}
+		,format={'n','[='}
+	}
+	vim.keymap.set('n','[e'	,vim.diagnostic.open_float, bufopts)
+	--	vim.keymap.set('n',';lgw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+	--	vim.keymap.set('n',';lw','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+	--	vim.keymap.set('n',';lli','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+	--	vim.keymap.set('n',';llo','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+	for k,v in pairs(mapping) do
+		vim.keymap.set(v[1],v[2],vim.lsp.buf[k],bufopts)
+	end
 end
 
 utilsnips_conf=function()

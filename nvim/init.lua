@@ -15,6 +15,7 @@ vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
 vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
 vim.keymap.set("n","<Leader>m",":make<CR>")
 vim.keymap.set("n","<Leader>e",":Lex 30 <CR>")
+vim.keymap.set("n","p",":normal [p <cr>")
 
 --make arrow unuasble in i mode
 vim.keymap.set("i","<Up>","<Nop>")
@@ -57,19 +58,6 @@ local opt={
 }
 vim.cmd([[
 	aunmenu PopUp
-	anoremenu	PopUp.terminal	<cmd>call system('alacritty')<CR>
-	anoremenu	PopUp.man	<cmd>call system('alacritty -e bash -i -c fman')<CR>
-	anoremenu	PopUp.thunar	<cmd>call system('thunar')<CR>
-	anoremenu	PopUp.make	<cmd>w<CR><cmd>Make<CR>
-	anoremenu	PopUp.gdb	<cmd>w<CR><cmd>call system('alacritty -e bash -c gdb')<CR>
-
-	anoremenu	PopUp.explore	<cmd>lex 30<CR>
-	anoremenu	PopUp.save	<cmd>w<cr>
-	anoremenu	PopUp.save&exit	<cmd>x<cr>
-	anoremenu	PopUp.exit	<cmd>q!<cr>
-	anoremenu	PopUp.delete	<cmd>d<cr>
-	anoremenu	PopUp.yank	<cmd>y<cr>
-	anoremenu	PopUp.put	<cmd>p<cr>
 
 	anoremenu	PopUp.lsp	<cmd>popup lsp<cr>
 	anoremenu	lsp.diagnostic		<cmd>lua vim.diagnostic.open_float()<cr>
@@ -85,6 +73,21 @@ vim.cmd([[
 	anoremenu	lsp.format		<cmd>lua vim.lsp.buf.format()<cr>
 	anoremenu	lsp.definition		<cmd>lua vim.lsp.buf.definition()<cr>
 	anoremenu	lsp.declaration		<cmd>lua vim.lsp.buf.declaration()<cr>
+
+	anoremenu	PopUp.terminal	<cmd>call system('alacritty')<CR>
+	anoremenu	PopUp.man	<cmd>call system('alacritty -e bash -i -c fman')<CR>
+	anoremenu	PopUp.thunar	<cmd>call system('thunar')<CR>
+	anoremenu	PopUp.make	<cmd>w<CR><cmd>Make<CR>
+	anoremenu	PopUp.gdb	<cmd>w<CR><cmd>call system('alacritty -e bash -c gdb')<CR>
+
+	anoremenu	PopUp.explore	<cmd>lex 30<CR>
+	anoremenu	PopUp.save	<cmd>w<cr>
+	anoremenu	PopUp.save&exit	<cmd>x<cr>
+	anoremenu	PopUp.exit	<cmd>q!<cr>
+	anoremenu	PopUp.delete	<cmd>d<cr>
+	anoremenu	PopUp.yank	<cmd>y<cr>
+	anoremenu	PopUp.put	<cmd>p<cr>
+
 	amenu     PopUp.URL         gx
 ]])
 
