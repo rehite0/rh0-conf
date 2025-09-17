@@ -20,6 +20,7 @@ multiplier = 1
 save_to_clipboard=true
 
 [font]
+size=13
 
 [colors]
 cursor ={ text = "CellBackground", cursor = "CellForeground" }

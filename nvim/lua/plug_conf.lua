@@ -69,12 +69,16 @@ end
 mason_lspconfig_conf=function()
 	require 'mason-lspconfig'.setup{}
 	require 'mason-lspconfig'.setup_handlers{
-			function(server_name) 
+			function(server_name)
 				local capabilities = require('cmp_nvim_lsp').default_capabilities()
 				require('lspconfig')[server_name].setup{
 				 on_attach=lspconfig_on_attach
 				,root_dir = require('lspconfig').util.root_pattern(".git",vim.fn.getcwd())
 				,capabilities = capabilities
+				,autostart=true
+				,settings={
+					Lua={diagnostics={globals={'vim'}}}
+				}
 			}
 			end
 	}
@@ -94,8 +98,8 @@ lspconfig_on_attach=function(client)
 		,remove_workspace_folder={'n','[wr'}
 		,type_definition={'n','[td'}
 		,rename={'n','[rn'}
-		,code_action={'n','[ca'}
-		,format={'n','[='}
+		,code_action={{'n','v'},'[a'}
+		,format={{'n','v'},'[='}
 	}
 	vim.keymap.set('n','[e'	,vim.diagnostic.open_float, bufopts)
 	--	vim.keymap.set('n',';lgw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
