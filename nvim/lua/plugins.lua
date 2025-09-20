@@ -13,7 +13,7 @@ return {
 
     		configs.setup({
     			ensure_installed = { "c", "lua", "vim", "vimdoc","python","glsl"
-					,"query", "elixir", "heex", "javascript", "html", "bash" },
+					,"query", "elixir", "heex", "javascript", "html", "bash","php" },
           		sync_install = false,
           		highlight = { enable = true },
           		indent = { enable = true },
@@ -37,12 +37,14 @@ return {
 	},
 	{
 		 "williamboman/mason-lspconfig.nvim"
-		,dependencies = {'mason.nvim'}
+		,dependencies = {'mason.nvim','nvim-lspconfig'}
 		,config=mason_lspconfig_conf
 	},
 
 	{
 		"neovim/nvim-lspconfig"
+		,config=lspconfig_conf
+		,dependencies={'mason.nvim'}
 	},
 	{ 'Sirver/ultisnips', config=utilsnips_conf},
 	{

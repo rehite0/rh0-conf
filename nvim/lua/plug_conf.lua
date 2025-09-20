@@ -63,29 +63,39 @@ lualine_conf=function()
 end
 
 mason_conf=function()
+	--:h mason
 	require 'mason'.setup{}
 end
 
 mason_lspconfig_conf=function()
+	--:h mason-lspconfig
 	require 'mason-lspconfig'.setup{}
 	require 'mason-lspconfig'.setup_handlers{
 			function(server_name)
 				local capabilities = require('cmp_nvim_lsp').default_capabilities()
-				require('lspconfig')[server_name].setup{
-				 on_attach=lspconfig_on_attach
-				,root_dir = require('lspconfig').util.root_pattern(".git",vim.fn.getcwd())
-				,capabilities = capabilities
-				,autostart=true
-				,settings={
-					Lua={diagnostics={globals={'vim'}}}
+				local server=require('lspconfig')[server_name]
+				local ft=server.config_def.default_config.filetypes
+				if(server_name=='emmet_language_server') then
+					table.insert(ft,"php")
+				end
+				server.setup{
+					 on_attach=lspconfig_on_attach
+					,root_dir = require('lspconfig').util.root_pattern(".git",vim.fn.getcwd())
+					,capabilities = capabilities
+					,autostart=true
+					,settings={
+						Lua={diagnostics={globals={'vim'}}}
+					}
+					,filetypes=ft
 				}
-			}
 			end
 	}
 end
 
+lspconfig_conf=function() end
+
 lspconfig_on_attach=function(client)
-	print("LSP started.");
+	--print("LSP started.");
 	local bufopts = { noremap=true, silent=true, }
 	local mapping={
 		hover={'n','[h'}
