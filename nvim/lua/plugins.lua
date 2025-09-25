@@ -2,23 +2,24 @@ require("plug_conf")
 return {
 	{'morhetz/gruvbox'
 		,config = function() vim.cmd.colorscheme("gruvbox")
-		vim.api.nvim_set_hl(0, "StatusLine", {reverse = false})
-		vim.api.nvim_set_hl(0, "StatusLineNC", {reverse = false})
-	end
+			vim.api.nvim_set_hl(0, "StatusLine", {reverse = false})
+			vim.api.nvim_set_hl(0, "StatusLineNC", {reverse = false})
+		end
 	}
 	,{"nvim-treesitter/nvim-treesitter"
 		,build = ":TSUpdate"
 		,config = function ()
-      		local configs = require("nvim-treesitter.configs")
+			local configs = require("nvim-treesitter.configs")
 
-    		configs.setup({
-    			ensure_installed = { "c", "lua", "vim", "vimdoc","python","glsl"
-					,"query", "elixir", "heex", "javascript", "html", "bash","php" },
-          		sync_install = false,
-          		highlight = { enable = true },
-          		indent = { enable = true },
-        		})
-    	end}
+			configs.setup({
+				ensure_installed = { "c", "lua", "vim", "vimdoc","python","glsl"
+						, "javascript", "html", "bash", "php" },
+				sync_install = false,
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+    		end
+	}
 	,{	'eandrju/cellular-automaton.nvim'
 		,config=cellular_automaton_conf
 	}

@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 
-pkg1="man ly qtile alacritty blueman neofetch"
-pkg2="blender obs-studio gimp blueman python vlc git thunar vivaldi mpv neovim rofi sxiv ffmpeg entr ctags dunst cmus"
-pkg3="gparted sxhkd rsync raylib make gzip glew glfw xprop xorg-xev"
-aurpkg="python-keyboard python-pyautogui"
-# lockscreen, emoji, notification, wifi, note, 
-sudo pacman -Syu
-sudo pacman -S $pkg1 $pkg2 $pkg3
+sudo bash ./install.sh
 
 #create dirs & file
 _files="\
