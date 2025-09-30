@@ -10,7 +10,7 @@ _imode='true' #true if running interactively
 alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
-	export PATH=$PATH:~/.scripts:~/.local/bin
+	export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/.config/composer/vendor/bin"
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/mylibs/pylibs
 	export MANWIDTH=100
 	export MANPAGER="nvim +Man!"
@@ -26,9 +26,11 @@ HISTSIZE=HISTFILESIZE
 
 IM	set -o vi
 IM	shopt -s autocd
+
 IM	alias g='git'
 IM	alias ed='nvim'
 IM	alias py='python'
+IM	alias dup='alacritty -e bash&'
 IM	alias wcc='gcc @${HOME}/.ccflg'
 IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
 IM	alias scs='maim -s|tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
@@ -54,37 +56,6 @@ fman(){
 	else
 		man $pg
 	fi
-}
-	
-IM \
-cmpl(){
-	local flags=''
-	case $1 in
-		'-f') flags="$2" ; shift 2;;
-		'-m') ls *.c | entr -cs 'make && ./a.out' ; return 0;;
-	esac
-
-	if [ -f $1 ] ; then
-		case $1 in
-			*.py)	local cm="python $flags $1"			;;
-			*.c)	local cm="cc $flags $1 -o a.out && ./a.out"	;;
-			*)	echo 'cannot cmpl' && return 1			;;
-		esac
-	else
-		echo "not a valid file"
-	fi
-	echo $1 | entr -cs $cm; 	
-}
-
-IM \
-crsc(){ 
-	case $1 in
-		'-M')	cat ~/.scripts/tmpat/makefile_  > Makefile && nvim Makefile	;;
-		'-m')	cat ~/.scripts/tmpat/makefile_  > makefile && nvim makefile	;;
-		'-p')	echo '#!/usr/bin/env python' > $2 && chmod +x $2 && nvim $2	;;
-		'-b')	echo '#!/usr/bin/env bash' > $2 && chmod +x $2 && nvim $2		;;
-		*)		echo '#!/usr/bin/env bash' >> $1 && chmod +x $1 && nvim $1		;;
-	esac
 }
 
 IM	S1='[\u@\h \W]\$ '

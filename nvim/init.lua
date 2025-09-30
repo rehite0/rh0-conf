@@ -107,6 +107,12 @@ vim.api.nvim_create_autocmd("MenuPopup", {
 		end
 	end,
 })
+vim.cmd("autocmd FileType blade set filetype=php")
+vim.filetype.add({
+	pattern = {
+		[".*%.blade%.php"] = "php",
+	},
+})
 
 for k,v in pairs(opt) do
 	vim.opt[k]=v

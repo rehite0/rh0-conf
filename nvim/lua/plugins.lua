@@ -12,13 +12,18 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc","python","glsl"
-						, "javascript", "html", "bash", "php" },
+				ensure_installed = { "c", "cmake","nasm", "lua", "vim", "vimdoc","python","glsl",
+					"markdown",
+					"javascript","json",
+					"html", "css",
+					"csv", "bash", "php","haskell","hlsl",
+					"java","printf","sql" },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
+				incremental_selection={ enable = true }
 			})
-    		end
+		end
 	}
 	,{	'eandrju/cellular-automaton.nvim'
 		,config=cellular_automaton_conf
