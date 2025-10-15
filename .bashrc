@@ -11,7 +11,8 @@ alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
 	export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/.config/composer/vendor/bin"
-	export PYTHONPATH=$PYTHONPATH:~/.scripts/mylibs/pylibs
+	export PYTHONPATH=$PYTHONPATH:~/.scripts/pylibs
+	export C_INCLUDE_PATH+=:~/.scripts/cutil
 	export MANWIDTH=100
 	export MANPAGER="nvim +Man!"
 	export FCEDIT="nvim"
@@ -30,10 +31,8 @@ IM	shopt -s autocd
 IM	alias g='git'
 IM	alias ed='nvim'
 IM	alias py='python'
-IM	alias dup='alacritty -e bash&'
 IM	alias wcc='gcc @${HOME}/.ccflg'
-IM	alias maim='maim -sb 4 -c 1,0.5,0.5,0.9'
-IM	alias scs='maim -s|tee ~/media/screen_shot/$(date +%s).png| xclip -selection clipboard -t image/png'
+IM	alias scs='sshot'
 IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
 IM	alias fkill='kill $(ps -eF|fzf|awk '\''{print $2}'\'')'
 IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
@@ -48,6 +47,19 @@ IM	alias chmod='chmod -v'
 
 IM	qot
 
+
+sshot(){
+	spectacle
+	# local file=~/media/screen_shot/$(date +%s).png;
+	# slurp | grim -t png -g - - | tee ${file} | wl-copy
+	# notify-send -a grim 'screenshot taken!' "${file}"
+}
+
+IM \
+dup(){
+	nohup alacritty -e bash & 
+	sleep 0.1
+}
 IM \
 fman(){
 	local pg="$(man -k . |fzf --tiebreak=begin -m|awk '{gsub(/[()]/,"");print $2 " " $1}')"
