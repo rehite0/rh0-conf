@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+declare -A url
+url['bithacks']='https://graphics.stanford.edu/~seander/bithacks.html'
+url['postgres']='https://www.postgresql.org/docs/current/index.html'
+url['git']='https://git-scm.com/docs'
+url['archwiki']='https://wiki.archlinux.org/title/Main_page'
+url['arch_man']='https://man.archlinux.org'
+url['gentoo_wiki']='https://wiki.gentoo.org/wiki/Main_Page'
+url['gdb']='https://sourceware.org/gdb/current/onlinedocs/gdb.html'
+url['python']='https://docs.python.org/3/'
+url['man']='https://man7.org/linux/man-pages/index.html'
+url['x86_opcode']='http://ref.x86asm.net/coder64-abc.html'
+url['gcc']='https://gcc.gnu.org/onlinedocs/gcc-15.1.0/gcc/'
+url['blender']='https://docs.blender.org/manual/en/latest/'
+url['cffi']='https://cffi.readthedocs.io/en/stable/'
+url['magick_doc']='https://imagemagick.org/script/command-line-processing.php'
+
+select=$(printf '%s\n' "${!url[@]}" | fzf )
+if [[ ${select} = '' ]] then
+	echo "nothing selected!"
+	exit 1
+fi
+nohup qutebrowser "${url[$select]}" &>/dev/null &
+disown
+echo "${select}" ' : ' "${url[$select]}"
+sleep 0.5

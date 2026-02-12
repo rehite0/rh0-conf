@@ -26,8 +26,15 @@ vim.keymap.set("i","<Right>","<Nop>")
 vim.api.nvim_create_user_command("Epause","suspend",{desc="pause nvim"})
 vim.api.nvim_create_user_command("Eterm","call system('alacritty')",{desc="launch terminal"})
 vim.api.nvim_create_user_command("Elsp","popup lsp",{desc="launch lsp menu"})
+vim.api.nvim_create_user_command("Eow",function()
+	vim.cmd('normal BvE"wy')
+	vim.system({'qutebrowser',vim.fn.getreg("w")})
+end,{desc="no idea"})
 
---options check :h options
+require("myplug.buff")
+require("myplug.dasm")
+
+--:!qutebrowser <c-r>w
 local opt={
 	clipboard		= 'unnamedplus'
 	,number			= true
@@ -54,6 +61,7 @@ local opt={
 	,history		= 1000
 	,wrapscan		= true
 	,virtualedit		='block'
+	,splitright		= true
 }
 vim.cmd([[
 	aunmenu PopUp
@@ -87,7 +95,7 @@ vim.cmd([[
 	anoremenu	PopUp.yank	<cmd>y<cr>
 	anoremenu	PopUp.put	<cmd>p<cr>
 
-	amenu     PopUp.URL         gx
+	amenu     PopUp.URL         <cmd>Eow<cr>
 ]])
 
 local group = vim.api.nvim_create_augroup("nvim.popupmenu", { clear = true })

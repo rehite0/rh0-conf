@@ -1,0 +1,18 @@
+set debuginfod enabled on
+alias -a di = disassemble
+alias -a il = info locals
+alias -a ia = info args
+
+#set solve as break and run
+define cpr	
+	break solve
+	run <input.txt
+	list
+end
+
+#set main as break and run
+define mb	
+	break main
+	run
+end
+

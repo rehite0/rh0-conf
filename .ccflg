@@ -10,3 +10,8 @@
 -Wunreachable-code
 -Winit-self
 -Wuninitialized
+-Wvla
+-Wvector-operation-performance
+-Wdisabled-optimization
+
+-fanalyzer

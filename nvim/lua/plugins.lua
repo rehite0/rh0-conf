@@ -12,7 +12,7 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "c", "cmake","nasm", "lua", "vim", "vimdoc","python","glsl",
+				ensure_installed = { "c", "cmake","nasm","asm", "lua", "vim", "vimdoc","python","glsl",
 					"markdown",
 					"javascript","json",
 					"html", "css",

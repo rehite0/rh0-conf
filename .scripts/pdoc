@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+base="/home/rh0/Desktop/scripts/doc"
+declare -A pdf
+pdf['gdb']="${base}/gdb.pdf"
+pdf['postgress']="${base}/postgresql-18-A4.pdf"
+pdf['c23']="${base}/c23_std.pdf"
+pdf['glibc']="${base}/glibc.pdf"
+pdf['glsl_spec']="${base}/GLSLangSpec.4.60.pdf"
+pdf['x86_manual']="${base}/intel_x86/325462-088-sdm-vol-1-2abcd-3abcd-4.pdf"
+pdf['x86_64-abi']="${base}/x86_64-abi-0.99.pdf"
+
+
+pdf['taocp_1']="${base}/books/taocp_1.pdf"
+pdf['taocp_2']="${base}/books/taocp_2.pdf"
+pdf['taocp_3']="${base}/books/taocp_3.pdf"
+pdf['taocp_4']="${base}/books/taocp_4.pdf"
+pdf['spcs']="${base}/books/Selected_Papers_on_Computer_Science.pdf"
+pdf['spcl']="${base}/books/Selected_papers_on_Computer_language.pdf"
+pdf['Structured_Programming']="${base}/books/Structured_Programming.pdf"
+pdf['dragon_book']="${base}/books/dragon.pdf"
+pdf['applied_cryptography']="${base}/books/Applied Cryptography (Bruce Schneier).pdf"
+pdf['beej_net_concept']="${base}/books/bgnet_concept.pdf"
+pdf['beej_net_programming']="${base}/books/bgnet_programming.pdf"
+
+pdf['af_cpp']="${base}/AF_optimization_manuals/optimizing_cpp.pdf"
+pdf['af_microarchitecture']="${base}/AF_optimization_manuals/microarchitecture.pdf"
+pdf['af_calling_convention']="${base}/AF_optimization_manuals/calling_conventions.pdf"
+pdf['af_asm']="${base}/AF_optimization_manuals/optimizing_assembly.pdf"
+
+
+
+select=$(printf '%s\n' "${!pdf[@]}" | fzf )
+if [[ ${select} = '' ]] then
+	echo "nothing selected!"
+	exit 1
+fi
+# nohup zathura "${pdf[$select]}" &>/dev/null &
+# disown 
+# sleep 0.5
+# echo "${select}" ' : ' "${pdf[$select]}"
+zathura --fork "${pdf[$select]}"

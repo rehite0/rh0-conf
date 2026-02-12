@@ -81,7 +81,10 @@ sudo pacman -S \
 	cowsay \
 
 #clib and python librays
-#flatpak
+flatpak install com.github.tchx84.Flatseal
+flatpak install com.visualstudio.code
+flatpak install com.vivaldi.Vivaldi
+
 yay -S cbonsai \
 	pipes.sh \
 	rar
