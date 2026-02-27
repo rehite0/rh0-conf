@@ -1,3 +1,4 @@
---vim.cmd([[py <<
---from main import *
---.]])
+vim.cmd([[py <<
+from main import *
+from fpipe import *
+.]])

@@ -28,6 +28,7 @@ HISTSIZE=HISTFILESIZE
 	[ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
 
 IM	eval "$(direnv hook bash)"
+
 IM	set -o vi
 IM	shopt -s autocd
 
@@ -35,7 +36,7 @@ IM	alias :e='nvim'
 IM	alias :c='fc'
 IM	alias :q='exit'
 IM	alias :n='dup'
-IM	alias g='git'
+IM	alias :g='git'
 IM	alias edp='nvim +Man!'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
@@ -77,16 +78,13 @@ fman(){
 		man $pg
 	fi
 }
-fman(){
-	local pg="$(man -k . |fzf --tiebreak=begin -m|awk '{gsub(/[()]/,"");print $2 " " $1}')"
-	if [[ "$pg" == "" ]]; then
-		echo 'nothing selected!!'
-	else
-		man $pg
-	fi
-}
 fpy(){
-	local pg="$(pydoc -k . 2>/dev/null |fzf --tiebreak=begin -m)"
+	if [[ ! -e /tmp/pydoc ]]; then
+		#too slow
+		pydoc -k . 1>/tmp/pydoc 2>/dev/null
+	fi
+	local pg="$(cat /tmp/pydoc |fzf --tiebreak=begin -m |cut -d' ' -f1)"
+	echo "$pg"
 	if [[ "$pg" == "" ]]; then
 		echo 'nothing selected!!'
 	else

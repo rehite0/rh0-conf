@@ -14,7 +14,8 @@ vim.keymap.set("n","<Leader>;",":E")
 vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
 vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
 vim.keymap.set("n","<Leader>m",":make<CR>")
-vim.keymap.set("n","<Leader>e",":Lex 30 <CR>")
+vim.keymap.set("n","<C-tab>",":Lex! 30 <CR>")
+
 
 --make arrow unuasble in i mode
 vim.keymap.set("i","<Up>","<Nop>")

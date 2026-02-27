@@ -12,12 +12,31 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "c", "cmake","nasm","asm", "lua", "vim", "vimdoc","python","glsl",
-					"markdown",
-					"javascript","json",
-					"html", "css",
-					"csv", "bash", "php","haskell","hlsl",
-					"java","printf","sql" },
+				ensure_installed = {
+					-- "man"
+					"c"
+					, "cmake"
+					,"python"
+					, "bash"
+					,"asm"
+					,"nasm"
+					, "lua"
+					, "vim"
+					, "vimdoc"
+					,"markdown"
+					,"html"
+					,"css"
+					,"javascript"
+					,"json"
+					,"csv"
+					, "php"
+					,"haskell"
+					,"java"
+					,"glsl"
+					,"hlsl"
+					,"printf"
+					,"sql"
+				},
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
