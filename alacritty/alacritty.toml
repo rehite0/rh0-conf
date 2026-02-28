@@ -35,6 +35,8 @@ bindings = 	[{key ="Return",	mods = "Alt", action= "SpawnNewInstance"}
 		,
 
 ]
+[terminal]
+shell="tmux"
 
 [mouse]
 

@@ -4,3 +4,4 @@
 *.temp
 *.json
 */doc/*
+tmux/plugins/*

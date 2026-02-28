@@ -29,7 +29,7 @@ HISTSIZE=HISTFILESIZE
 
 IM	eval "$(direnv hook bash)"
 
-IM	set -o vi
+# IM	set -o vi
 IM	shopt -s autocd
 
 IM	alias :e='nvim'

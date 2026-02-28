@@ -1,0 +1,3 @@
+set enable-meta-key on
+
+"\ed": kill-whole-line
