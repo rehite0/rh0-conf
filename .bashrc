@@ -34,7 +34,8 @@ IM	shopt -s autocd
 
 IM	alias :e='nvim'
 IM	alias :c='fc'
-IM	alias :q='exit'
+IM	alias :x='exit'
+IM	alias :q='tmux kill-session'
 IM	alias :n='dup'
 IM	alias :g='git'
 IM	alias edp='nvim +Man!'
@@ -81,7 +82,7 @@ fman(){
 fpy(){
 	if [[ ! -e /tmp/pydoc ]]; then
 		#too slow
-		pydoc -k . 1>/tmp/pydoc 2>/dev/null
+		pydoc -k "" 1>/tmp/pydoc 2>/dev/null
 	fi
 	local pg="$(cat /tmp/pydoc |fzf --tiebreak=begin -m |cut -d' ' -f1)"
 	echo "$pg"
