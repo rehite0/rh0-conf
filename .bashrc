@@ -13,11 +13,10 @@ HISTSIZE=HISTFILESIZE
 	export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/.config/composer/vendor/bin"
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/pylibs
 	export C_INCLUDE_PATH+=:~/.scripts/cutil
-	export MANWIDTH=100
+	export MANWIDTH=160
 	export MANPAGER="nvim +Man!"
-	export FCEDIT="nvim"
 	export EDITOR="nvim"
-	export SUDO_ASKPASS="/usr/bin/ksshaskpass"
+	export FCEDIT="nvim"
 
 	export scr="$HOME/.scripts"
 	export des="$HOME/Desktop"
@@ -33,17 +32,17 @@ IM	eval "$(direnv hook bash)"
 IM	shopt -s autocd
 
 IM	alias :e='nvim'
-IM	alias :c='fc'
 IM	alias :x='exit'
 IM	alias :q='tmux kill-session'
+IM	alias :c='fc'
 IM	alias :n='dup'
 IM	alias :g='git'
 IM	alias :t='cd ~/.t'
 IM	alias edp='nvim +Man!'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
-IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
-IM	alias fkill='kill $(ps -eF|fzf|awk '\''{print $2}'\'')'
+# IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
+# IM	alias fkill='kill $(ps -eF|fzf|awk '\''{print $2}'\'')'
 IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
 
 IM	alias ls='ls --color=auto'
@@ -59,7 +58,7 @@ IM	alias code='flatpak run com.visualstudio.code'
 IM	alias fvivi='flatpak run com.vivaldi.Vivaldi'
 IM	alias flatseal='flatpak run com.github.tchx84.Flatseal'
 
-IM	qot	#my script to print quots
+IM	qot	#my script to print quotes
 
 sshot(){
 	spectacle
@@ -71,6 +70,9 @@ if [[ $_imode == 'true' ]] ; then
 dup(){
 	nohup alacritty -e bash &>/dev/null &
 	disown
+}
+:in(){
+	info $@ |nvim +InfoSetup -
 }
 fman(){
 	local pg="$(man -k . |fzf --tiebreak=begin -m|awk '{gsub(/[()]/,"");print $2 " " $1}')"

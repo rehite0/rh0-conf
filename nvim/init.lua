@@ -34,6 +34,7 @@ end,{desc="no idea"})
 
 require("myplug.buff")
 require("myplug.dasm")
+require("myplug.InfoSetup")
 
 --:!qutebrowser <c-r>w
 local opt={

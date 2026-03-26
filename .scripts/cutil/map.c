@@ -1,9 +1,9 @@
 
 #define map(fn,arr,n)			\
-for(int i=0;i<n;++i) fn(arr[i],i)	\
+for(int _i=0;_i<n;++_i) fn(arr[_i],_i)	\
 
 #define exist(ret,cond,arr,n)		\
-do{ typeof(arr[0]) x; int i=0		\
-while ( i<n && !cond )++i;		\
-ret=i!=n?i:-1; }while(0)		\
+do{ int _i=0;				\
+while ( _i<n && !cond )++_i;		\
+ret=_i!=n?_i:-1; }while(0)		\
 
