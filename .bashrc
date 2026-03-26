@@ -53,6 +53,7 @@ IM	alias ln='ln -v'
 IM	alias rm='rm -v'
 IM	alias mkdir='mkdir -pv'
 IM	alias chmod='chmod -v'
+IM	alias info='info --vi-keys'
 
 IM	alias code='flatpak run com.visualstudio.code'
 IM	alias fvivi='flatpak run com.vivaldi.Vivaldi'
