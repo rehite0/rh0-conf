@@ -21,7 +21,7 @@ if [[ ${select} = '' ]] then
 	echo "nothing selected!"
 	exit 1
 fi
-nohup qutebrowser "${url[$select]}" &>/dev/null &
-disown
+qutebrowser "${url[$select]}" &>/dev/null &
+disown -h
 echo "${select}" ' : ' "${url[$select]}"
 sleep 0.5

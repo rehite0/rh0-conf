@@ -102,7 +102,7 @@ qb(){
 }
 fi
 
-IM	S1='[\u@\h \W]\$ '
+IM	PS1='[\u \l=\j \W]\$ '
 
 unalias IM
 unset _imode
