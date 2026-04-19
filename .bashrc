@@ -18,13 +18,13 @@ HISTSIZE=HISTFILESIZE
 	export EDITOR="nvim"
 	export FCEDIT="nvim"
 
-	export scr="$HOME/.scripts"
-	export des="$HOME/Desktop"
-	export dow="$HOME/Downloads"
-	export bac="$HOME/backup"
-	export git="$HOME/.git_repo"
-	export prg="$HOME/Desktop/program"
-	[ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
+	# export scr="$HOME/.scripts"
+	# export des="$HOME/Desktop"
+	# export dow="$HOME/Downloads"
+	# export bac="$HOME/backup"
+	# export git="$HOME/.git_repo"
+	# export prg="$HOME/Desktop/program"
+	# [ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
 
 IM	eval "$(direnv hook bash)"
 
@@ -41,8 +41,6 @@ IM	alias :t='cd ~/.t'
 IM	alias edp='nvim +Man!'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
-# IM	alias fcd='cd $(fzf --walker=dir,hidden,follow)'
-# IM	alias fkill='kill $(ps -eF|fzf|awk '\''{print $2}'\'')'
 IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
 
 IM	alias ls='ls --color=auto'
@@ -62,10 +60,11 @@ IM	alias flatseal='flatpak run com.github.tchx84.Flatseal'
 IM	qot	#my script to print quotes
 
 sshot(){
-	spectacle
+	#spectacle
 	# local file=~/media/screen_shot/$(date +%s).png;
 	# slurp | grim -t png -g - - | tee ${file} | wl-copy
 	# notify-send -a grim 'screenshot taken!' "${file}"
+	:
 }
 if [[ $_imode == 'true' ]] ; then 
 dup(){
@@ -73,7 +72,7 @@ dup(){
 	disown
 }
 :in(){
-	info $@ |nvim +InfoSetup -
+	info $@ |nvim
 }
 fman(){
 	local pg="$(man -k . |fzf --tiebreak=begin -m|awk '{gsub(/[()]/,"");print $2 " " $1}')"

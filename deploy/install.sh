@@ -1,89 +1,104 @@
 #!/usr/bin/env bash
 
 sudo pacman -Syu
+sudo pacman -S \
+	hyperland
+	
 #system utils
 sudo pacman -S \
 	alacritty \
+	amdgpu_top \
+	btop \
+	dunst \
+	gparted \
+	htop \
+	keyd \
 	man \
 	man-db \
 	man-pages \
-	gparted \
-	ly \
-	rsync \
-	dunst \
-	htop \
-	btop \
-	nvtop \
-	amdgpu_top \
-	keyd \
-	swaylock \
 	networkmanager \
+	nvtop \
+	rsync \
+	gnupg \
+	# swaylock \
 #	rofi \
-#	hyperland \
 #	slurp \
 #	grim \
 #	qemu/kvm
 
 #user utils
 sudo pacman -S \
-	obs-studio \
-	man \
-	gparted \
+	blender \
+	cmus \
+	entr \
+	ffmpeg \
+	flatpak \
+	fzf \
 	gimp \
 	inkscape \
-	vlc \
-	thunar \
-	fzf \
-	entr \
-	cmus \
-	sxiv \
-	mpv \
-	ffmpeg \
 	less \
-	flatpak
+	mpv \
+	nsxiv \
+	obs-studio \
+	pandoc \
+	thunar \
+	vlc \
+	zathura \
+	zathura-pdf-poppler \
+	# sxiv \
 
 #dev tools
 sudo pacman -S \
-	neovim \
-	git \
-	gcc \
+	amdgpu_top \
+	base-devel \
+	binutils \
+	blender \
 	clang \
-	gdb \
-	valgrind \
-	make \
-	pkgconf \
+	cmake \
+	coreutils \
 	ctags \
+	gcc \
+	gdb \
+	git \
+	glew \
+	glfw \
+	gzip \
+	make \
+	neovim \
+	npm \
 	opengl-man-pages \
 	openssh \
-	glfw \
-	glew \
+	pkgconf \
 	python \
-	python-numpy \
 	python-matplotlib \
-	python-opengl \
+	python-numpy \
 	python-opencv \
+	python-opengl \
 	python-pandas \
-	npm \
-	thunar \
-	blender \
-	gzip \
-	zip \
-	xz \
+	ripgrep \
 	tar \
-	binutils \
-	coreutils \
-	base-devel \
+	thunar \
+	valgrind \
+	xz \
+	zip \
+	docker \
+	glew \
+	# direnv \
+# 	emacs \
+
+
+#clib and python librays
+flatpak install com.github.tchx84.Flatseal
+flatpak install com.visualstudio.code
+flatpak install com.vivaldi.Vivaldi
+flatpak install net.audiorelay.AudioRelay 
+flatpak install org.chromium.Chromium 
 
 #eyecandy
 sudo pacman -S \
 	figlet \
 	cmatrix \
 	cowsay \
-
-#clib and python librays
-flatpak install com.github.tchx84.Flatseal
-flatpak install com.visualstudio.code
-flatpak install com.vivaldi.Vivaldi
 
 yay -S cbonsai \
 	pipes.sh \
