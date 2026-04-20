@@ -13,6 +13,7 @@ sudo pacman -S \
 sudo pacman -S \
 	alacritty \
 	amdgpu_top \
+	nvtop \
 	btop \
 	dunst \
 	gparted \
@@ -89,12 +90,13 @@ sudo pacman -S \
 # 	emacs \
 
 
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 #clib and python librays
 flatpak install com.github.tchx84.Flatseal
-flatpak install com.visualstudio.code
 flatpak install com.vivaldi.Vivaldi
-flatpak install net.audiorelay.AudioRelay 
 flatpak install org.chromium.Chromium 
+flatpak install com.visualstudio.code
+flatpak install net.audiorelay.AudioRelay 
 
 #eyecandy
 sudo pacman -S \
