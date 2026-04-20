@@ -2,7 +2,12 @@
 
 sudo pacman -Syu
 sudo pacman -S \
-	hyperland
+	hyperland \
+
+#	swaylock \
+#	rofi \
+#	slurp \
+#	grim \
 	
 #system utils
 sudo pacman -S \
@@ -20,10 +25,7 @@ sudo pacman -S \
 	nvtop \
 	rsync \
 	gnupg \
-	# swaylock \
-#	rofi \
-#	slurp \
-#	grim \
+	timeshift \
 #	qemu/kvm
 
 #user utils
