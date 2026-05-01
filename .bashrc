@@ -29,6 +29,7 @@ HISTSIZE=HISTFILESIZE
 	# export prg="$HOME/Desktop/program"
 	# [ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
 
+IM	eval "$(ssh-agent -s)" >/dev/null
 # IM	eval "$(direnv hook bash)"
 
 # IM	set -o vi
@@ -41,6 +42,7 @@ IM	alias :c='fc'
 IM	alias :n='dup'
 IM	alias :g='git'
 IM	alias :t='cd ~/.t'
+IM	alias :o='yazi'
 IM	alias edp='nvim +Man!'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
