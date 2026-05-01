@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 sudo pacman -Syu
-sudo pacman -S \
-	hyperland \
+sudo pacman -S --needed \
+	hyprland \
+	hyprshot \
+	hyprlock \
+	hyprpicker \
+	hypridle \
 
 #	swaylock \
 #	rofi \
@@ -10,10 +14,8 @@ sudo pacman -S \
 #	grim \
 	
 #system utils
-sudo pacman -S \
+sudo pacman -S --needed \
 	alacritty \
-	amdgpu_top \
-	nvtop \
 	btop \
 	dunst \
 	gparted \
@@ -23,14 +25,17 @@ sudo pacman -S \
 	man-db \
 	man-pages \
 	networkmanager \
-	nvtop \
 	rsync \
 	gnupg \
 	timeshift \
-#	qemu/kvm
+	virt-manager \
+	qemu-desktop \
+	brightnessctl \
+	playerctl \
+	loginctl \
 
 #user utils
-sudo pacman -S \
+sudo pacman -S --needed \
 	blender \
 	cmus \
 	entr \
@@ -51,7 +56,7 @@ sudo pacman -S \
 	# sxiv \
 
 #dev tools
-sudo pacman -S \
+sudo pacman -S --needed \
 	amdgpu_top \
 	base-devel \
 	binutils \
@@ -67,6 +72,7 @@ sudo pacman -S \
 	glfw \
 	gzip \
 	make \
+	nvtop \
 	neovim \
 	npm \
 	opengl-man-pages \
@@ -86,6 +92,7 @@ sudo pacman -S \
 	zip \
 	docker \
 	glew \
+	tmux \
 	# direnv \
 # 	emacs \
 
@@ -99,7 +106,7 @@ flatpak install com.visualstudio.code
 flatpak install net.audiorelay.AudioRelay 
 
 #eyecandy
-sudo pacman -S \
+sudo pacman -S --needed \
 	figlet \
 	cmatrix \
 	cowsay \

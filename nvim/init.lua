@@ -1,7 +1,7 @@
 vim.g.mapleader=" "
 vim.g.maplocalleader="\\"
-require("config.lazy")
-require("python3.init")
+-- require("config.lazy")
+-- require("python3.init")
 
 --key maps
 --check motions and key-notation
@@ -32,9 +32,9 @@ vim.api.nvim_create_user_command("Eow",function()
 	vim.system({'qutebrowser',vim.fn.getreg("w")})
 end,{desc="no idea"})
 
-require("myplug.buff")
-require("myplug.dasm")
-require("myplug.InfoSetup")
+-- require("myplug.buff")
+-- require("myplug.dasm")
+-- require("myplug.InfoSetup")
 
 --:!qutebrowser <c-r>w
 local opt={
@@ -117,12 +117,12 @@ vim.api.nvim_create_autocmd("MenuPopup", {
 		end
 	end,
 })
-vim.cmd("autocmd FileType blade set filetype=php")
-vim.filetype.add({
-	pattern = {
-		[".*%.blade%.php"] = "php",
-	},
-})
+-- vim.cmd("autocmd FileType blade set filetype=php")
+-- vim.filetype.add({
+-- 	pattern = {
+-- 		[".*%.blade%.php"] = "php",
+-- 	},
+-- })
 
 for k,v in pairs(opt) do
 	vim.opt[k]=v

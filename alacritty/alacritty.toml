@@ -1,3 +1,10 @@
+[general]
+live_config_reload = true
+working_directory ="None"
+#doc:https://alacritty.org/config-alacritty.html
+import = [
+  "~/.config/alacritty/dank-theme.toml"
+]
 
 [window]
 dimensions = { columns = 100, lines=30 }
@@ -40,9 +47,12 @@ shell="tmux"
 
 [mouse]
 
-[general]
-live_config_reload = true
-working_directory ="None"
-#doc:https://alacritty.org/config-alacritty.html
-import=[]
 
+[env]
+LC_ALL='en_IN.UTF-8'
+LANG='en_IN.UTF-8'
+MANWIDTH='160'
+MANPAGER="nvim +Man!"
+TERM='alacritty'
+EDITOR="nvim"
+FCEDIT="nvim"

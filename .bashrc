@@ -13,8 +13,11 @@ HISTSIZE=HISTFILESIZE
 	export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/.config/composer/vendor/bin"
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/pylibs
 	export C_INCLUDE_PATH+=:~/.scripts/cutil
+	export LC_ALL=en_IN.UTF-8
+	export LANG=en_IN.UTF-8
 	export MANWIDTH=160
 	export MANPAGER="nvim +Man!"
+	export TERM='alacritty'
 	export EDITOR="nvim"
 	export FCEDIT="nvim"
 
@@ -26,7 +29,7 @@ HISTSIZE=HISTFILESIZE
 	# export prg="$HOME/Desktop/program"
 	# [ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
 
-IM	eval "$(direnv hook bash)"
+# IM	eval "$(direnv hook bash)"
 
 # IM	set -o vi
 IM	shopt -s autocd
@@ -54,7 +57,7 @@ IM	alias chmod='chmod -v'
 IM	alias info='info --vi-keys'
 
 IM	alias code='flatpak run com.visualstudio.code'
-IM	alias fvivi='flatpak run com.vivaldi.Vivaldi'
+IM	alias vivi='flatpak run com.vivaldi.Vivaldi'
 IM	alias flatseal='flatpak run com.github.tchx84.Flatseal'
 
 IM	qot	#my script to print quotes
