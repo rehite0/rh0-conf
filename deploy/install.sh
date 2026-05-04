@@ -110,6 +110,8 @@ sudo pacman -S --needed \
 	figlet \
 	cmatrix \
 	cowsay \
+	cava \
+
 
 yay -S cbonsai \
 	pipes.sh \
