@@ -7,42 +7,9 @@ return {
 		end
 	}
 	,{"nvim-treesitter/nvim-treesitter"
+		,lazy=false
 		,build = ":TSUpdate"
-		,config = function ()
-			local configs = require("nvim-treesitter.configs")
-
-			configs.setup({
-				ensure_installed = {
-					-- "man"
-					"c"
-					, "cmake"
-					,"python"
-					, "bash"
-					,"asm"
-					,"nasm"
-					, "lua"
-					, "vim"
-					, "vimdoc"
-					,"markdown"
-					,"html"
-					,"css"
-					,"javascript"
-					,"json"
-					,"csv"
-					, "php"
-					,"haskell"
-					,"java"
-					,"glsl"
-					,"hlsl"
-					,"printf"
-					,"sql"
-				},
-				sync_install = false,
-				highlight = { enable = true },
-				indent = { enable = true },
-				incremental_selection={ enable = true }
-			})
-		end
+		,config = ts_conf
 	}
 	,{	'eandrju/cellular-automaton.nvim'
 		,config=cellular_automaton_conf
@@ -91,8 +58,5 @@ return {
 	},
 	{
 		'tpope/vim-surround'
-	},
-	{
-		'kmonad/kmonad-vim'
 	},
 }

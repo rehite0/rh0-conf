@@ -13,6 +13,40 @@ cellular_automaton_conf=function()
 	vim.api.nvim_create_user_command("Emir",mir,{desc="run animation"})
 	vim.api.nvim_create_user_command("Egol","CellularAutomaton game_of_life",{desc="run animation"})
 end
+ts_conf=function ()
+-- :h nvim-treesitter-commands
+-- :h treesitter-highlight
+	require('nvim-treesitter').setup {
+	  -- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
+	  install_dir = vim.fn.stdpath('data') .. '/site'
+	}
+	ensure_installed = {
+		"asm"
+		,"bash"
+		,"c"
+		,"cmake"
+		,"css"
+		,"csv"
+		,"glsl"
+		,"hlsl"
+		,"html"
+		,"java"
+		,"javascript"
+		,"json"
+		,"lua"
+		,"markdown"
+		,"nasm"
+		,"printf"
+		,"python"
+		,"sql"
+		,"vim"
+		,"vimdoc"
+		-- "man"
+		-- ,"php"
+		-- ,"haskell"
+	}
+	require('nvim-treesitter').install(ensure_installed):wait(300000) -- wait max. 5 minutes
+end
 
 undotree_conf=function()
 	vim.keymap.set("n","<leader>u","<cmd>UndotreeToggle<CR>")
@@ -70,26 +104,7 @@ end
 mason_lspconfig_conf=function()
 	--:h mason-lspconfig
 	require 'mason-lspconfig'.setup{}
-	require 'mason-lspconfig'.setup_handlers{
-			function(server_name)
-				local capabilities = require('cmp_nvim_lsp').default_capabilities()
-				local server=require('lspconfig')[server_name]
-				local ft=server.config_def.default_config.filetypes
-				if(server_name=='emmet_language_server') then
-					table.insert(ft,"php")
-				end
-				server.setup{
-					 on_attach=lspconfig_on_attach
-					,root_dir = require('lspconfig').util.root_pattern(".git",vim.fn.getcwd())
-					,capabilities = capabilities
-					,autostart=true
-					,settings={
-						Lua={diagnostics={globals={'vim'}}}
-					}
-					,filetypes=ft
-				}
-			end
-	}
+	lspconfig_on_attach(nil)
 end
 
 lspconfig_conf=function() end

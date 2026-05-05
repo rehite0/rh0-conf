@@ -1,7 +1,7 @@
 vim.g.mapleader=" "
 vim.g.maplocalleader="\\"
--- require("config.lazy")
--- require("python3.init")
+require("config.lazy")
+require("python3.init")
 
 --key maps
 --check motions and key-notation
@@ -32,9 +32,8 @@ vim.api.nvim_create_user_command("Eow",function()
 	vim.system({'qutebrowser',vim.fn.getreg("w")})
 end,{desc="no idea"})
 
--- require("myplug.buff")
--- require("myplug.dasm")
--- require("myplug.InfoSetup")
+require("myplug.buff")
+require("myplug.dasm")
 
 --:!qutebrowser <c-r>w
 local opt={
