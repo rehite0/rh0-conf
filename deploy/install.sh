@@ -16,23 +16,23 @@ sudo pacman -S --needed \
 #system utils
 sudo pacman -S --needed \
 	alacritty \
+	brightnessctl \
 	btop \
 	dunst \
+	gnupg \
 	gparted \
 	htop \
 	keyd \
+	loginctl \
 	man \
 	man-db \
 	man-pages \
 	networkmanager \
+	playerctl \
+	qemu-desktop \
 	rsync \
-	gnupg \
 	timeshift \
 	virt-manager \
-	qemu-desktop \
-	brightnessctl \
-	playerctl \
-	loginctl \
 
 #user utils
 sudo pacman -S --needed \
@@ -51,6 +51,7 @@ sudo pacman -S --needed \
 	pandoc \
 	thunar \
 	vlc \
+	yazi \
 	zathura \
 	zathura-pdf-poppler \
 	# sxiv \
@@ -65,6 +66,8 @@ sudo pacman -S --needed \
 	cmake \
 	coreutils \
 	ctags \
+	docker \
+	emacs \
 	gcc \
 	gdb \
 	git \
@@ -72,9 +75,9 @@ sudo pacman -S --needed \
 	glfw \
 	gzip \
 	make \
-	nvtop \
 	neovim \
 	npm \
+	nvtop \
 	opengl-man-pages \
 	openssh \
 	pkgconf \
@@ -87,14 +90,11 @@ sudo pacman -S --needed \
 	ripgrep \
 	tar \
 	thunar \
+	tmux \
 	valgrind \
 	xz \
 	zip \
-	docker \
-	glew \
-	tmux \
 	# direnv \
-# 	emacs \
 
 
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
