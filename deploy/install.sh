@@ -33,6 +33,7 @@ sudo pacman -S --needed \
 	rsync \
 	timeshift \
 	virt-manager \
+	linux-headers \
 
 #user utils
 sudo pacman -S --needed \
@@ -50,7 +51,9 @@ sudo pacman -S --needed \
 	obs-studio \
 	pandoc \
 	thunar \
+	v4l2loopback-dkms \
 	vlc \
+	vlc-plugin-ffmpeg \
 	yazi \
 	zathura \
 	zathura-pdf-poppler \
