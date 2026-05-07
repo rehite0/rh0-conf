@@ -109,7 +109,7 @@ qb(){
 fi
 
 # IM	PS1='[\u \l=\j \W]\$ '
-IM	PS1='❯'
+IM	PS1='(\W)❯'
 # ∴ ★ ❯
 
 unalias IM
