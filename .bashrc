@@ -36,18 +36,19 @@ IM	eval "$(ssh-agent -s)" >/dev/null
 IM	shopt -s autocd
 
 IM	alias :e='nvim'
+IM	alias :ee='emacsclient -ca "emacs"'
 IM	alias :x='exit'
 IM	alias :q='tmux kill-session'
-IM	alias :c='fc'
+IM	alias :f='fc'
+IM	alias :t='cd ~/.t'
+IM	alias :c='yazi'
 IM	alias :n='dup'
 IM	alias :g='git'
 IM	alias :ga='git add -A'
 IM	alias :gs='git status'
 IM	alias :gc='git commit -m'
 IM	alias :gp='git push'
-IM	alias :t='cd ~/.t'
-IM	alias :o='yazi'
-IM	alias edp='nvim +Man!'
+IM	alias :ep='nvim +Man!'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
 IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
@@ -55,7 +56,7 @@ IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
 IM	alias ls='ls --color=auto'
 IM	alias ll='ls -lah'
 IM	alias grep='grep --color=auto'
-IM	alias cp='cp -i'
+IM	alias cp='cp -iv'
 IM	alias ln='ln -v'
 IM	alias rm='rm -v'
 IM	alias mkdir='mkdir -pv'
@@ -79,9 +80,6 @@ if [[ $_imode == 'true' ]] ; then
 dup(){
 	nohup alacritty -e bash &>/dev/null &
 	disown
-}
-:in(){
-	info $@ |nvim
 }
 fman(){
 	local pg="$(man -k . |fzf --tiebreak=begin -m|awk '{gsub(/[()]/,"");print $2 " " $1}')"
@@ -110,7 +108,9 @@ qb(){
 }
 fi
 
-IM	PS1='[\u \l=\j \W]\$ '
+# IM	PS1='[\u \l=\j \W]\$ '
+IM	PS1='❯'
+# ∴ ★ ❯
 
 unalias IM
 unset _imode
