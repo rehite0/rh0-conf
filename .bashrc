@@ -1,21 +1,16 @@
 #@~/.bashrc
 
-#for login
-if [[ $(tty) = '/dev/tty3' ]] then
-	sudo chvt 2 && exit
-fi
-
 _imode='true' #true if running interactively
 [[ $- != *i* ]] && _imode='false'
 alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
-	export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/.config/composer/vendor/bin"
+	export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
 	export PYTHONPATH=$PYTHONPATH:~/.scripts/pylibs
 	export C_INCLUDE_PATH+=:~/.scripts/cutil
 	export LC_ALL=en_IN.UTF-8
 	export LANG=en_IN.UTF-8
-	export MANWIDTH=160
+	export MANWIDTH=80
 	export MANPAGER="nvim +Man!"
 	export TERM='alacritty'
 	export EDITOR="nvim"
@@ -27,7 +22,6 @@ HISTSIZE=HISTFILESIZE
 	# export bac="$HOME/backup"
 	# export git="$HOME/.git_repo"
 	# export prg="$HOME/Desktop/program"
-	# [ -f "/home/rh0/.ghcup/env" ] && . "/home/rh0/.ghcup/env" # ghcup-env
 
 IM	eval "$(ssh-agent -s)" >/dev/null
 # IM	eval "$(direnv hook bash)"
@@ -36,19 +30,18 @@ IM	eval "$(ssh-agent -s)" >/dev/null
 IM	shopt -s autocd
 
 IM	alias :e='nvim'
+IM	alias :c='yazi'
+IM	alias :q='tmux kill-session'
 IM	alias :ee='emacsclient -ca "emacs"'
 IM	alias :x='exit'
-IM	alias :q='tmux kill-session'
+IM	alias :n='dup'
 IM	alias :f='fc'
 IM	alias :t='cd ~/.t'
-IM	alias :c='yazi'
-IM	alias :n='dup'
 IM	alias :g='git'
 IM	alias :ga='git add -A'
 IM	alias :gs='git status'
 IM	alias :gc='git commit -m'
 IM	alias :gp='git push'
-IM	alias :ep='nvim +Man!'
 IM	alias py='python'
 IM	alias wcc='gcc @${HOME}/.ccflg'
 IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
@@ -77,6 +70,10 @@ sshot(){
 	:
 }
 if [[ $_imode == 'true' ]] ; then 
+man(){
+	MANWIDTH=$(( $(tput cols) - 2));
+	command man $@;
+}
 dup(){
 	nohup alacritty -e bash &>/dev/null &
 	disown
@@ -110,7 +107,7 @@ fi
 
 # IM	PS1='[\u \l=\j \W]\$ '
 IM	PS1='(\W)❯'
-# ∴ ★ ❯
+# ∴ ★ ❯ $ & % @ ~ #
 
 unalias IM
 unset _imode

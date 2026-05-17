@@ -16,6 +16,7 @@ sudo pacman -S --needed \
 #system utils
 sudo pacman -S --needed \
 	alacritty \
+	android-file-transfer \
 	brightnessctl \
 	btop \
 	dunst \
