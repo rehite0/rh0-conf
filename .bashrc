@@ -5,8 +5,8 @@ _imode='true' #true if running interactively
 alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
-	export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
-	export PYTHONPATH=$PYTHONPATH:~/.scripts/pylibs
+	export PATH="$PATH:${HOME}/.scripts:${HOME}/.local/bin:${HOME}/.config/emacs/bin"
+	export PYTHONPATH="$PYTHONPATH:~/.scripts/pylibs"
 	export C_INCLUDE_PATH+=:~/.scripts/cutil
 	export LC_ALL=en_IN.UTF-8
 	export LANG=en_IN.UTF-8
