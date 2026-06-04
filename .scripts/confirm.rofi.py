@@ -18,5 +18,5 @@ match sys.argv[1]:
                ).stdout.strip()
         print('y' if res==yes_sym else 'n')
     case _:
-        print(f"invalid arg {sys.argv[0]}")
+        print(f"invalid arg {sys.argv[1]}")
 

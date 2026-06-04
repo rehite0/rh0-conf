@@ -11,13 +11,15 @@ vim.keymap.set({"i","v","n"},";l",'<cmd>popu lsp<cr>')
 vim.keymap.set("n","<Leader><CR>","o<ESC>")
 vim.keymap.set("n","<Leader>;",":E")
 
-vim.keymap.set("n","<Leader>k",":normal! mtkddp`t<CR>")
-vim.keymap.set("n","<Leader>j",":normal! mtjddkkp`t<CR>")
 vim.keymap.set("n","<Leader>m",":make<CR>")
 vim.keymap.set("n","<C-e>",":Lex! 30 <CR>")
 
+vim.keymap.set("n","<Leader>k",":normal! kVdpk<CR>")
+vim.keymap.set("n","<Leader>j",":normal! Vdp<CR>")
+vim.keymap.set("v","<Leader>k","<cmd>normal! dkkp<CR>")
+vim.keymap.set("v","<Leader>j","<cmd>normal! dp<CR>")
+vim.keymap.set("v","p",[["_dP]])
 
---make arrow unuasble in i mode
 vim.keymap.set("i","<Up>","<Nop>")
 vim.keymap.set("i","<Down>","<Nop>")
 vim.keymap.set("i","<Left>","<Nop>")
@@ -82,11 +84,7 @@ vim.cmd([[
 	anoremenu	lsp.definition		<cmd>lua vim.lsp.buf.definition()<cr>
 	anoremenu	lsp.declaration		<cmd>lua vim.lsp.buf.declaration()<cr>
 
-	anoremenu	PopUp.terminal	<cmd>call system('alacritty')<CR>
-	anoremenu	PopUp.man	<cmd>call system('alacritty -e bash -i -c fman')<CR>
-	anoremenu	PopUp.thunar	<cmd>call system('thunar')<CR>
 	anoremenu	PopUp.make	<cmd>w<CR><cmd>Make<CR>
-	anoremenu	PopUp.gdb	<cmd>w<CR><cmd>call system('alacritty -e bash -c gdb')<CR>
 
 	anoremenu	PopUp.explore	<cmd>lex 30<CR>
 	anoremenu	PopUp.save	<cmd>w<cr>

@@ -32,7 +32,7 @@ IM	shopt -s autocd
 IM	alias :e='nvim'
 IM	alias :c='yazi'
 IM	alias :q='tmux kill-session'
-IM	alias :ee='emacsclient -ca "emacs"'
+IM	alias :ee=' coproc emacsclient -ca "emacs"'
 IM	alias :x='exit'
 IM	alias :n='dup'
 IM	alias :f='fc'
