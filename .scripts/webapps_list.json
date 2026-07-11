@@ -1,4 +1,16 @@
 {
+	"art":{ "profile" :"rh_art" , "url" :"" ,"app_mode":false },
+	"as":{ "profile" :"as" , "url" :"" ,"app_mode" :false },
+	"co":{ "profile" :"rh_co" , "url" :"" ,"app_mode" :false },
+	"ex":{ "profile" :"rh_ex" , "url" :"" ,"app_mode" :false },
+	"g":{ "profile" :"rh_g" , "url" :"" ,"app_mode" :false },
+	"kas":{ "profile" :"kas" , "url" :"" ,"app_mode" :false },
+	"phy":{ "profile" :"rh_phy" , "url" :"" ,"app_mode" :false },
+	"p":{ "profile" :"rh_p" , "url" :"" ,"app_mode" :false },
+	"psy":{ "profile" :"rh_psy" , "url" :"" ,"app_mode" :false },
+	"puz":{ "profile" :"rh_puz" , "url" :"" ,"app_mode" :false },
+	"rc":{ "profile" :"rh_rc" , "url" :"" ,"app_mode" :false },
+
 	"art_yt":{ "profile" :"rh_art" , "url" :"www.youtube.com/" ,"app_mode":false },
 	"as_yt":{ "profile" :"as" , "url" :"www.youtube.com/" ,"app_mode" :false },
 	"co_yt":{ "profile" :"rh_co" , "url" :"www.youtube.com/" ,"app_mode" :false },
@@ -35,7 +47,18 @@
 	"puz_gmail":{ "profile" :"rh_puz" , "url" :"https://mail.google.com/mail/u/0/#inbox" ,"app_mode" :false },
 	"rc_gmail":{ "profile" :"rh_rc" , "url" :"https://mail.google.com/mail/u/0/#inbox" ,"app_mode" :false },
 
-	"p_whatapp":{ "profile" :"rh_p" , "url" :"https://web.whatsapp.com" ,"app_mode" :false },
+	"p_whatapp":{ "profile" :"rh_p" , "url" :"https://web.whatsapp.com" ,"app_mode" :true },
 	"p_amazon":{ "profile" :"rh_p" , "url" :"https://www.amazon.in" ,"app_mode" :false },
-	"p_flipkart":{ "profile" :"rh_p" , "url" :"https://www.flipkart.com" ,"app_mode" :false }
+	"p_flipkart":{ "profile" :"rh_p" , "url" :"https://www.flipkart.com" ,"app_mode" :false },
+
+	"g_chess.com":{ "profile" :"rh_g" , "url" :"https://www.chess.com/home" ,"app_mode" :true },
+	"g_lichess_analysis":{ "profile" :"rh_g" , "url" :"https://lichess.org/analysis" ,"app_mode" :true },
+	"g_lichess_storm":{ "profile" :"rh_g" , "url" :"https://lichess.org/storm" ,"app_mode" :true },
+
+	"co_reddit":{ "profile" :"rh_co" , "url" :"https://www.reddit.com" ,"app_mode" :true },
+	"co_monkeytype":{ "profile" :"rh_co" , "url" :"https://monkeytype.com" ,"app_mode" :true },
+	"co_github":{ "profile" :"rh_co" , "url" :"https://github.com" ,"app_mode" :false },
+	"co_cf.home":{ "profile" :"rh_co" , "url" :"https://codeforces.com/profile/REHITE?graphType=rated" ,"app_mode" :false },
+	"co_cf.cal":{ "profile" :"rh_co" , "url" :"https://codeforces.com/calendar" ,"app_mode" :true },
+	"co_compiler.explorer":{ "profile" :"rh_co" , "url" :"https://godbolt.org" ,"app_mode" :true }
 }

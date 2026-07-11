@@ -1,0 +1,26 @@
+{
+    "gdb"  : "~/doc/gdb.pdf",
+    "postgress"    : "~/doc/postgresql-18-A4.pdf",
+    "c23"  : "~/doc/c23_std.pdf",
+    "glibc"    : "~/doc/glibc.pdf",
+    "glsl_spec"    : "~/doc/GLSLangSpec.4.60.pdf",
+    "x86_manual"   : "~/doc/intel_x86/325462-088-sdm-vol-1-2abcd-3abcd-4.pdf",
+    "x86_64-abi"   : "~/doc/x86_64-abi-0.99.pdf",
+
+    "taocp_1"  : "~/doc/books/taocp_1.pdf",
+    "taocp_2"  : "~/doc/books/taocp_2.pdf",
+    "taocp_3"  : "~/doc/books/taocp_3.pdf",
+    "taocp_4"  : "~/doc/books/taocp_4.pdf",
+    "spcs"     : "~/doc/books/Selected_Papers_on_Computer_Science.pdf",
+    "spcl"     : "~/doc/books/Selected_papers_on_Computer_language.pdf",
+    "Structured_Programming"   : "~/doc/books/Structured_Programming.pdf",
+    "dragon_book"  : "~/doc/books/dragon.pdf",
+    "applied_cryptography" : "~/doc/books/Applied Cryptography (Bruce Schneier).pdf",
+    "beej_net_concept" : "~/doc/books/bgnet_concept.pdf",
+    "beej_net_programming" : "~/doc/books/bgnet_programming.pdf",
+
+    "af_cpp"   : "~/doc/AF_optimization_manuals/optimizing_cpp.pdf",
+    "af_microarchitecture" : "~/doc/AF_optimization_manuals/microarchitecture.pdf",
+    "af_calling_convention"    : "~/doc/AF_optimization_manuals/calling_conventions.pdf",
+    "af_asm"   : "~/doc/AF_optimization_manuals/optimizing_assembly.pdf"
+}

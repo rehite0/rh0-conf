@@ -43,16 +43,8 @@ bindings = 	[{key ="Return",	mods = "Alt", action= "SpawnNewInstance"}
 
 ]
 [terminal]
-shell="tmux"
+shell="bash"
 
 [mouse]
 
 
-[env]
-LC_ALL='en_IN.UTF-8'
-LANG='en_IN.UTF-8'
-MANWIDTH='160'
-MANPAGER="nvim +Man!"
-TERM='alacritty'
-EDITOR="nvim"
-FCEDIT="nvim"

@@ -1,4 +1,5 @@
 [mgr]
 prepend_keymap = [
 	{ on = "b", run = "shell --block -- bash -i",             desc = "open terminal" },
+	{ on = "]", run = "shell --orphan -- emacsclient -c -a 'emacs' %h ",             desc = "open terminal" },
 ]

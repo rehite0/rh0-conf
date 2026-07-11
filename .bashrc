@@ -5,16 +5,7 @@ _imode='true' #true if running interactively
 alias IM='$_imode && '
 
 HISTSIZE=HISTFILESIZE
-	export PATH="$PATH:${HOME}/.scripts:${HOME}/.local/bin:${HOME}/.config/emacs/bin"
-	export PYTHONPATH="$PYTHONPATH:~/.scripts/pylibs"
-	export C_INCLUDE_PATH+=:~/.scripts/cutil
-	export LC_ALL=en_IN.UTF-8
-	export LANG=en_IN.UTF-8
-	export MANWIDTH=80
-	export MANPAGER="nvim +Man!"
-	export TERM='alacritty'
-	export EDITOR="nvim"
-	export FCEDIT="nvim"
+source "$HOME/.git_repo/rh0-conf/global_env"
 
 	# export scr="$HOME/.scripts"
 	# export des="$HOME/Desktop"
@@ -30,10 +21,12 @@ IM	eval "$(ssh-agent -s)" >/dev/null
 IM	shopt -s autocd
 
 IM	alias :e='nvim'
+IM	alias :o='xdg-open'
 IM	alias :c='yazi'
 IM	alias :q='tmux kill-session'
-IM	alias :ee=' coproc emacsclient -ca "emacs"'
+IM	alias :ee='coproc emacsclient -ca "emacs"'
 IM	alias :x='exit'
+IM	alias :m='tmux'
 IM	alias :n='dup'
 IM	alias :f='fc'
 IM	alias :t='cd ~/.t'

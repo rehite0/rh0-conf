@@ -8,6 +8,9 @@ import json as j
 with open(f"{Path(__file__).resolve().parent}/webapps_list.json",'r') as f:
     webapps_list=j.load(f)
 
+if len(sys.argv)<2:
+    if sys.stdout.isatty(): print("give 'launch' as argument")
+    exit()
 print(webapps_list)
 menu="\n".join(webapps_list.keys())
 match sys.argv[1]:
@@ -25,12 +28,15 @@ match sys.argv[1]:
                     f'--profile-directory="{webapps_list[res]["profile"]}"',
                     ]
             if webapps_list[res]['app_mode']:
-                cmd.append('--app')
-            cmd.append(webapps_list[res]["url"])
+                cmd.append(f'--app={webapps_list[res]["url"]}')
+            else:
+                cmd.append(webapps_list[res]["url"])
 
             if sys.stdout.isatty(): print(*cmd,sep=' ')
 
             sp.run(" ".join(cmd),shell=True)
+            sp.run([__file__,'launch'])
             exit()
     case _:
         print(f"invalid arg '{sys.argv[1]}'")
+

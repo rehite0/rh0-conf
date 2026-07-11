@@ -21,4 +21,9 @@ hl.on("hyprland.shutdown", function ()
 		hl.exec_cmd(i)
 	end
 end)
+hl.on('config.reloaded',function()
+	hl.notification.create{
+		text='config reloaded'
+		,timeout=300 }
+end)
 -- exec = notify-send -t 300 -a "System" "hyprland" "config reloaded" 
