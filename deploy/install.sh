@@ -7,9 +7,10 @@ sudo pacman -S --needed \
 	hyprlock \
 	hyprpicker \
 	hypridle \
+	rofi \
+	wev
 
 #	swaylock \
-#	rofi \
 #	slurp \
 #	grim \
 	
@@ -30,11 +31,14 @@ sudo pacman -S --needed \
 	man-pages \
 	networkmanager \
 	playerctl \
+	pavucontrol \
 	qemu-desktop \
 	rsync \
 	timeshift \
 	virt-manager \
 	linux-headers \
+	usbutils \
+	ntfs-3g \
 
 #user utils
 sudo pacman -S --needed \
@@ -91,6 +95,9 @@ sudo pacman -S --needed \
 	python-opencv \
 	python-opengl \
 	python-pandas \
+	postgresql \
+	postgresql-docs \
+	pgcli \
 	ripgrep \
 	tar \
 	thunar \
@@ -98,6 +105,7 @@ sudo pacman -S --needed \
 	valgrind \
 	xz \
 	zip \
+	shellcheck \
 	# direnv \
 
 
