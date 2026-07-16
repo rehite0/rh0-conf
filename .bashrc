@@ -15,7 +15,7 @@ source "$HOME/.git_repo/rh0-conf/global_env"
 	# export prg="$HOME/Desktop/program"
 
 IM	eval "$(ssh-agent -s)" >/dev/null
-# IM	eval "$(direnv hook bash)"
+IM	eval "$(direnv hook bash)"
 
 # IM	set -o vi
 IM	shopt -s autocd
@@ -36,7 +36,6 @@ IM	alias :gs='git status'
 IM	alias :gc='git commit -m'
 IM	alias :gp='git push'
 IM	alias py='python'
-IM	alias wcc='gcc @${HOME}/.ccflg'
 IM	alias his='eval $(history |sort -rn|fzf --tiebreak=index|cut -f3- -d" ")'
 
 IM	alias ls='ls --color=auto'
@@ -55,6 +54,10 @@ IM	alias flatseal='flatpak run com.github.tchx84.Flatseal'
 
 IM	qot	#my script to print quotes
 
+wcc(){
+	gcc "@${HOME}/.ccflg" -fdiagnostics-color=always "$@" 2>/tmp/gcc_err
+	if (( $? !=0 )) then nvim +Man! "+set filetype=term"</tmp/gcc_err; fi
+}
 sshot(){
 	#spectacle
 	# local file=~/media/screen_shot/$(date +%s).png;
@@ -65,7 +68,7 @@ sshot(){
 if [[ $_imode == 'true' ]] ; then 
 man(){
 	MANWIDTH=$(( $(tput cols) - 2));
-	command man $@;
+	command man "$@";
 }
 dup(){
 	nohup alacritty -e bash &>/dev/null &
@@ -93,7 +96,7 @@ fpy(){
 	fi
 }
 qb(){
-	nohup qutebrowser $@ &>/dev/null &
+	nohup qutebrowser "$@" &>/dev/null &
 	disown
 }
 fi
