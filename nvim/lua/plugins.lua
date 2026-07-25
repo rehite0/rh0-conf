@@ -59,4 +59,8 @@ return {
 	{
 		'tpope/vim-surround'
 	},
+	{
+	  '0xferrous/ansi.nvim',
+	  config =ansi_conf
+  	},
 }

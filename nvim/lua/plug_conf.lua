@@ -179,3 +179,10 @@ cmp_conf= function()
 		}),
 	})
 end
+ansi_conf=function()
+	    require('ansi').setup({
+	      auto_enable = false,        -- Auto-enable for configured filetypes
+	      auto_enable_stdin = true,   -- Auto-enable for piped stdin content
+	      filetypes = { 'log', 'ansi' },
+	    })
+	  end

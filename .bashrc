@@ -47,6 +47,7 @@ IM	alias rm='rm -v'
 IM	alias mkdir='mkdir -pv'
 IM	alias chmod='chmod -v'
 IM	alias info='info --vi-keys'
+IM	alias vpg='nvim -m "+s/.\[K//eg" "+map q :q!<cr>" "+set filetype=ansi"'
 
 IM	alias code='flatpak run com.visualstudio.code'
 IM	alias vivi='flatpak run com.vivaldi.Vivaldi'
@@ -56,7 +57,7 @@ IM	qot	#my script to print quotes
 
 wcc(){
 	gcc "@${HOME}/.ccflg" -fdiagnostics-color=always "$@" 2>/tmp/gcc_err
-	if (( $? !=0 )) then nvim +Man! "+set filetype=term"</tmp/gcc_err; fi
+	if (( $? !=0 )) then nvim -m "+s/.\[K//eg" "+map q :q!<cr>" "+set filetype=ansi"</tmp/gcc_err; fi
 }
 sshot(){
 	#spectacle
