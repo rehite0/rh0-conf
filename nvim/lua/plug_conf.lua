@@ -127,6 +127,8 @@ lspconfig_on_attach=function(client)
 		,format={{'n','v'},'[='}
 	}
 	vim.keymap.set('n','[e'	,vim.diagnostic.open_float, bufopts)
+	vim.lsp.codelens.enable(true)
+	vim.keymap.set("n", "[x", vim.lsp.codelens.run)
 	--	vim.keymap.set('n',';lgw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 	--	vim.keymap.set('n',';lw','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
 	--	vim.keymap.set('n',';lli','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
@@ -186,3 +188,26 @@ ansi_conf=function()
 	      filetypes = { 'log', 'ansi' },
 	    })
 	  end
+
+-- rust_conf=function()
+-- 	vim.g.rustaceanvim = {
+-- 	  server = {
+-- 	    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+-- 	    settings = {
+-- 	      ['rust-analyzer'] = {
+-- 		-- 1. Ensure lenses are enabled in the backend engine
+-- 		lens = {
+-- 		  enable = true,
+-- 		  run = { enable = true },
+-- 		  debug = { enable = true },
+-- 		  references = { enable = true }, -- Displays "X references" above functions
+-- 		},
+-- 		cargo = { allFeatures = true },
+-- 		checkOnSave = true ,
+-- 	      },
+-- 	    },
+-- 	  },
+-- 	}
+
+-- 	lspconfig_on_attach(nil)
+-- end

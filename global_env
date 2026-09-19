@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #@~/.config/uwsm/env
 
-export PATH="$PATH:${HOME}/.scripts:${HOME}/.local/bin:${HOME}/.config/emacs/bin"
+export PATH="$PATH:${HOME}/.scripts:${HOME}/.local/bin:${HOME}/.config/emacs/bin:${HOME}/.cargo/bin"
 export PYTHONPATH="$PYTHONPATH:~/.scripts/pylibs"
 export C_INCLUDE_PATH+=':~/.scripts/cutil'
 export LC_ALL=en_IN.UTF-8

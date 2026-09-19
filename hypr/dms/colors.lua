@@ -1,0 +1,34 @@
+
+-- ! Auto-generated file. Do not edit directly.
+-- Remove source = ./dms/colors.conf from your config to override.
+
+
+local primary = "rgb(63CD9A)"
+local outline = "rgb(38595E)"
+local error = "rgb(f2b8b5)"
+
+hl.config({
+    general = {
+        col = {
+            active_border = primary,
+            inactive_border = outline,
+        },
+    },
+    group = {
+        col = {
+            border_active = primary,
+            border_inactive = outline,
+            border_locked_active = error,
+            border_locked_inactive = outline,
+        },
+        groupbar = {
+            col = {
+                active = primary,
+                inactive = outline,
+                locked_active = error,
+                locked_inactive = outline,
+            },
+        },
+    },
+})
+
