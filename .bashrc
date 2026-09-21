@@ -16,6 +16,7 @@ source "$HOME/.git_repo/rh0-conf/global_env"
 
 IM	eval "$(ssh-agent -s)" >/dev/null
 IM	eval "$(direnv hook bash)"
+IM	eval "$(zoxide init bash)"
 
 # IM	set -o vi
 IM	shopt -s autocd

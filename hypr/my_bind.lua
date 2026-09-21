@@ -33,7 +33,7 @@ hl.bind("SUPER + ALT + SHIFT + period", hl.dsp.layout("expel next"))
 --apps
 hl.bind("SUPER + T", hl.dsp.exec_cmd("[float;size 900 700;center] alacritty"))
 hl.bind("SUPER + R", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind("SUPER + W", hl.dsp.exec_cmd("rofi -show windoscroll_mw"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("rofi -show window"))
 hl.bind("CTRL + SHIFT + T", hl.dsp.exec_cmd("alacritty"))
 hl.bind("CTRL + SHIFT + W", hl.dsp.exec_cmd("~/.scripts/webapps.rofi.py launch"))
 hl.bind("CTRL + SHIFT + E", hl.dsp.exec_cmd("alacritty -e bash -ic yazi"))
@@ -49,6 +49,7 @@ hl.bind("SUPER + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "to
 hl.bind("SUPER + SHIFT + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind("SUPER + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + G", hl.dsp.group.toggle())
+hl.bind("SUPER + SHIFT + P", hl.dsp.window.pin({ action = "toggle" }))
 
 -- Numbered Workspaces
 hl.bind("SUPER + 1", hl.dsp.focus({ workspace = 1 }))
@@ -62,8 +63,8 @@ hl.bind("SUPER + 8", hl.dsp.focus({ workspace = 8 }))
 hl.bind("SUPER + 9", hl.dsp.focus({ workspace = 9 }))
 hl.bind("SUPER + 0", hl.dsp.focus({ workspace = 10 }))
 hl.bind("SUPER + BRACKETLEFT", hl.dsp.focus({ workspace = 11 }))
-hl.bind("SUPER + U", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind("SUPER + I", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("SUPER + U", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind("SUPER + I", hl.dsp.focus({ workspace = "e+1" }))
 
 -- Move to Numbered Workspaces
 hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = 1 }))
