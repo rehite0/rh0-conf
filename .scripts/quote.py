@@ -6,7 +6,7 @@ import shutil
 import sys
 import textwrap
 
-QUOTE_FILE = pathlib.Path("./quote.txt")
+QUOTE_FILE = pathlib.Path("~/txts/quote.txt").expanduser()
 
 
 def print_help():
@@ -138,7 +138,7 @@ def format_tty(quote_obj, show_source, show_flags):
 
     output_lines.append("")
     output_lines.append(
-        textwrap.fill(f"— {author_str}", width=width, initial_indent="  ")
+        textwrap.fill(f"\t\t\t\t— {author_str}", width=width, initial_indent="  ")
     )
 
     if show_source and source_str:

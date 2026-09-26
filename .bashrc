@@ -54,7 +54,7 @@ IM	alias code='flatpak run com.visualstudio.code'
 IM	alias vivi='flatpak run com.vivaldi.Vivaldi'
 IM	alias flatseal='flatpak run com.github.tchx84.Flatseal'
 
-IM	qot	#my script to print quotes
+IM	quote.py	#my script to print quotes
 
 wcc(){
 	gcc "@${HOME}/.ccflg" -fdiagnostics-color=always "$@" 2>/tmp/gcc_err
